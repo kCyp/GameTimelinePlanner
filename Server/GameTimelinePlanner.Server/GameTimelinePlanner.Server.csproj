@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="7.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Client\GameTimelinePlanner.Client\GameTimelinePlanner.Client.csproj" />
+    <ProjectReference Include="..\..\Shared\GameTimelinePlanner.Shared.Domain\GameTimelinePlanner.Shared.Domain.csproj" />
+    <ProjectReference Include="..\GameTimelinePlanner.Server.Application\GameTimelinePlanner.Server.Application.csproj" />
+    <ProjectReference Include="..\GameTimelinePlanner.Server.Infrastructure\GameTimelinePlanner.Server.Infrastructure.csproj" />
+  </ItemGroup>
+
+
+</Project>

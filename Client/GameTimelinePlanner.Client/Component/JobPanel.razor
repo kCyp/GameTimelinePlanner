@@ -1,0 +1,15 @@
+﻿@using GameTimelinePlanner.Shared.Domain.Entity
+
+
+@if (Job != null)
+{
+    <div class="job-panel" style="--job-color: @Job.DisplayDescription.ColorHex">
+        <img class="job-icon" src="@Job.DisplayDescription.IconSource" />
+        <label class="job-name">@Job.Name</label>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public Job? Job { get; set; }
+}

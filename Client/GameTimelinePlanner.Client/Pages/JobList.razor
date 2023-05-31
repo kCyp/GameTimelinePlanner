@@ -1,0 +1,67 @@
+﻿@page "/joblist"
+@using GameTimelinePlanner.Shared.Domain.Entity;
+@using GameTimelinePlanner.Client.Component;
+@inject HttpClient Http
+
+<PageTitle>Job list</PageTitle>
+
+<h1>Job list</h1>
+
+@if (_jobs == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Job</th>
+                <th>Skill</th>
+                <th>Duration</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var job in _jobs)
+            {
+                @if (job.Skills.Any())
+                {
+                @foreach (var skill in job.Skills)
+                    {
+                        <tr>
+                            @if (job.Skills.IndexOf(skill) == 0) {
+                                <th rowspan="@job.Skills.Count" style="vertical-align:middle">
+                                    <JobPanel Job="@job" />
+                                </th>
+                            }
+                            <td>@skill.Name</td>
+                            <td>@skill.Duration</td>
+                            <td>@skill.Description</td>
+                        </tr>
+                    }
+                } 
+                else
+                {
+                    <tr>
+                        <th rowspan="1">
+                            <JobPanel Job="@job" />
+                        </th>
+                        <td/>
+                        <td/>
+                        <td/>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private IList<Job>? _jobs;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _jobs = await Http.GetFromJsonAsync<IList<Job>>("Job");
+    }
+}

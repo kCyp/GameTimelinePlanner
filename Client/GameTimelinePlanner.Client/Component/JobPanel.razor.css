@@ -1,0 +1,23 @@
+﻿.job-panel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: whitesmoke;
+    width: 10em;
+    padding: 2px 4px;
+    border: 1px solid black;
+    border-radius: 8px;
+    box-shadow: var(--job-color) 0px 0px 0px;
+    -webkit-transition: box-shadow 0.1s;
+}
+.job-panel:hover {
+    box-shadow: var(--job-color) 0px 0px 10px;
+}
+
+.job-icon {
+    width: 3em;
+}
+.job-name {
+    align-self: center;
+    color: var(--job-color);
+}

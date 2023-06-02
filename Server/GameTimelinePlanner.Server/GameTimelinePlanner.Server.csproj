@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Data\jobs.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="7.0.5" />
   </ItemGroup>
 
@@ -15,6 +19,12 @@
     <ProjectReference Include="..\..\Shared\GameTimelinePlanner.Shared.Domain\GameTimelinePlanner.Shared.Domain.csproj" />
     <ProjectReference Include="..\GameTimelinePlanner.Server.Application\GameTimelinePlanner.Server.Application.csproj" />
     <ProjectReference Include="..\GameTimelinePlanner.Server.Infrastructure\GameTimelinePlanner.Server.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Data\jobs.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 

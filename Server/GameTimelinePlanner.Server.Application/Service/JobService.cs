@@ -8,14 +8,17 @@ public class JobService : IJobService
 {
     private readonly ILogger<JobService> _logger;
     private readonly IJobRepository _jobRepository;
+    private readonly IRepository<Job> _jobRepo;
 
-    public JobService(ILogger<JobService> logger, IJobRepository jobRepository)
+    public JobService(ILogger<JobService> logger, IJobRepository jobRepository, IRepository<Job> jobRepo)
     {
         _jobRepository = jobRepository;
         _logger = logger;
+        _jobRepo = jobRepo;
     }
 
     public async Task<IList<Job>> Get() {
-        return await _jobRepository.Get();
+        return await _jobRepo.Get();
+        //return await _jobRepository.Get();
     }
 }

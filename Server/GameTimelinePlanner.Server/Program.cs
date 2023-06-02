@@ -1,4 +1,5 @@
 using GameTimelinePlanner.Infrastructure.Repository;
+using GameTimelinePlanner.Shared.Domain.Entity;
 using GameTimePlanner.Application.Interface;
 using GameTimePlanner.Application.Service;
 
@@ -10,6 +11,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.AddTransient<IJobRepository, JobRepository>();
 builder.Services.AddTransient<IJobService, JobService>();
+builder.Services.AddTransient<IRepository<Job>, JsonRepository<Job>>();
+builder.Services.AddTransient<JsonContext, JsonContext>();
+
 
 var app = builder.Build();
 

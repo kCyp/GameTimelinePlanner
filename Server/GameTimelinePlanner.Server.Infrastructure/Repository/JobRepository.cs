@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace GameTimelinePlanner.Infrastructure.Repository;
@@ -17,8 +18,10 @@ public class JobRepository : IJobRepository
             Role.Tank, 
             new List<Skill>()
             {
-                new Skill("Dark Missionary", 15, "15% magical damage reduction"),
-                new Skill("Reprisal", 10, "10% damage reduction")
+                new Skill("Dark Missionary", 15, "15% magical damage reduction",
+                    new DisplayDescription("FFXIV/DRK/dark_missionary.png", "#FFFFFF")),
+                new Skill("Reprisal", 10, "10% damage reduction",
+                    new DisplayDescription("FFXIV/DRK/dark_missionary.png", "#FFFFFF"))
             }, 
             new DisplayDescription(
                 "https://img.finalfantasyxiv.com/lds/promo/h/9/5JT3hJnBNPZSLAijAF9u7zrueQ.png",
@@ -29,9 +32,12 @@ public class JobRepository : IJobRepository
             Role.Tank, 
             new List<Skill>()
             {
-                new Skill("Reprisal", 10, "10% damage reduction"),
-                new Skill("PlaceHolder1", 0, ""),
-                new Skill("Placeholder2", 0, "")
+                new Skill("Reprisal", 10, "10% damage reduction",
+                    new DisplayDescription("FFXIV/DRK/dark_missionary.png", "#FFFFFF")),
+                new Skill("PlaceHolder1", 0, "",
+                    new DisplayDescription("FFXIV/DRK/dark_missionary.png", "#FFFFFF")),
+                new Skill("Placeholder2", 0, "",
+                    new DisplayDescription("FFXIV/DRK/dark_missionary.png", "#FFFFFF"))
             },
             new DisplayDescription(
                 "https://img.finalfantasyxiv.com/lds/promo/h/0/U3f8Q98TbAeGvg_vXiHGOaa2d4.png",
@@ -42,8 +48,10 @@ public class JobRepository : IJobRepository
             Role.Healer, 
             new List<Skill>()
             {
-                new Skill("Kerachole", 10, "10% damage reduction"),
-                new Skill("Holos", 0, "")
+                new Skill("Kerachole", 10, "10% damage reduction",
+                    new DisplayDescription("FFXIV/SGE/kerachole.png", "#FFFFFF")),
+                new Skill("Holos", 0, "",
+                    new DisplayDescription("FFXIV/SGE/holos.png", "#FFFFFF"))
             },
             new DisplayDescription(
                 "https://img.finalfantasyxiv.com/lds/promo/h/e/G0lQTD01LdCGk5pECSc7fbbmbM.png",

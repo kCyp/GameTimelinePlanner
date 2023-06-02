@@ -28,6 +28,6 @@ public class JsonContext
             Type type when type == typeof(Job) => (IList<T>) await _LazyJobs.Value,
             Type type when type == typeof(Duty) => (IList<T>) await _LazyDuties.Value,
             _ => throw new NotImplementedException()
-        }; ;
+        };
     }
 }

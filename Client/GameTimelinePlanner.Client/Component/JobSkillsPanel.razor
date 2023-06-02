@@ -1,5 +1,19 @@
-﻿<h3>JobSkillsPanel</h3>
+﻿@using GameTimelinePlanner.Shared.Domain.Entity
+
+@if (Job != null)
+{
+    <div class="job-skills-panel">
+        <JobPanel Job="@Job" />
+        <div class="skills-panel">
+            @foreach (Skill skill in Job.Skills)
+            {
+                <SkillPanel Skill="@skill"/>            
+            }
+        </div>
+    </div>
+}
 
 @code {
-
+    [Parameter]
+    public Job? Job { get; set; }
 }

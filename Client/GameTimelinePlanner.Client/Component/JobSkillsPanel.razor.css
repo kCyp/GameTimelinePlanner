@@ -1,2 +1,17 @@
-﻿body {
+﻿.job-skills-panel {
+    border: double 0.1em silver;
+    border-radius: 10px;
+    margin: 2em 1em 1em 1em;
+    background-color: #fffffa;
+}
+
+::deep .job-panel {
+    margin-left: -1em;
+    margin-top: -2em;
+}
+
+.skills-panel {
+    margin: 0.2em;
+    display: flex;
+    flex-flow: column;
 }

@@ -1,0 +1,5 @@
+﻿.jobs-skills-panel {
+    display: flex;
+    flex-flow : row wrap;
+    transition: all 1s;
+}

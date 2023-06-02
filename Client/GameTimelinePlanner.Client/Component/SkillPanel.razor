@@ -1,0 +1,27 @@
+﻿@using GameTimelinePlanner.Shared.Domain.Entity
+
+@if (Skill != null)
+{
+    <div class="skill-panel">
+        <img class="skill-icon" src="Resources/@Skill.DisplayDescription.IconSource">
+        <div class="skill-informations">
+            <div class="information">
+                <span class="information-icon oi oi-book" />
+                <label class="information-text">@Skill.Name</label>
+            </div>
+            <div class="information">
+                <span class="information-icon oi oi-clock" />
+                <span class="information-text">@Skill.Duration</span>
+            </div>
+            <div class="information">
+                <span class="information-icon oi oi-align-left" />
+                <span class="information-text">@Skill.Description</span>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public Skill? Skill { get; set; }
+}

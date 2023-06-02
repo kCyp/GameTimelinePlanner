@@ -26,6 +26,6 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        _jobs = await Http.GetFromJsonAsync<IList<Job>>("/job");
+        _jobs = await Http.GetFromJsonAsync<IList<Job>>("game/jobs");
     }
 }

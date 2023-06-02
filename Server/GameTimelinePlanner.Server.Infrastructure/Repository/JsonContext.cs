@@ -14,11 +14,19 @@ public class JsonContext
         return jobs;
     }); 
 
+    private Lazy<Task<IList<Duty>>> _LazyDuties { get; set; } = new Lazy<Task<IList<Duty>>>(async() =>
+    {
+        using FileStream fileStream = new("Data/duty.json", FileMode.Open);
+        IList<Duty> duties = await JsonSerializer.DeserializeAsync<IList<Duty>>(fileStream) ?? new List<Duty>();
+        return duties;
+    }); 
+
     public async Task<IList<T>> CollectionAsync<T>()
     {
         return typeof(T) switch
         {
             Type type when type == typeof(Job) => (IList<T>) await _LazyJobs.Value,
+            Type type when type == typeof(Duty) => (IList<T>) await _LazyDuties.Value,
             _ => throw new NotImplementedException()
         }; ;
     }

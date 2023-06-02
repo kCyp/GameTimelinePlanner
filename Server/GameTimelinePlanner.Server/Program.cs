@@ -9,11 +9,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
-builder.Services.AddTransient<IJobRepository, JobRepository>();
-builder.Services.AddTransient<IJobService, JobService>();
 builder.Services.AddTransient<IRepository<Job>, JsonRepository<Job>>();
+builder.Services.AddTransient<IRepository<Duty>, JsonRepository<Duty>>();
 builder.Services.AddTransient<JsonContext, JsonContext>();
-
+builder.Services.AddTransient<IGameService, GameService>();
 
 var app = builder.Build();
 

@@ -1,0 +1,46 @@
+[
+	{
+		"Name": "The Omega Protocol",
+        "Difficulty": 1,
+        "Level": 90,
+        "ItemLevel": 375,
+		"ReleasePatch": "6.31",
+        "DisplayDescription": {
+            "IconSource": "FFXIV/Skills/DRK/dark_missionary.png",
+            "ColorHex": "#FFFFFF"
+        }
+	},
+    {
+		"Name": "The Epic of Alexander",
+        "Difficulty": 1,
+        "Level": 80,
+        "ItemLevel": 475,
+		"ReleasePatch": "5.11",
+        "DisplayDescription": {
+            "IconSource": "FFXIV/Skills/DRK/dark_missionary.png",
+            "ColorHex": "#FFFFFF"
+        }
+	},
+    {
+		"Name": "The Weapon's Refrain",
+        "Difficulty": 1,
+        "Level": 70,
+        "ItemLevel": 375,
+        "ReleasePatch": "4.31",
+        "DisplayDescription": {
+            "IconSource": "FFXIV/Skills/DRK/dark_missionary.png",
+            "ColorHex": "#FFFFFF"
+        }
+	},
+	{
+		"Name": "The Unending Coil of Bahamut",
+        "Difficulty": 1,
+        "Level": 70,
+        "ItemLevel": 375,
+		"ReleasePatch": "4.11",
+        "DisplayDescription": {
+            "IconSource": "FFXIV/Skills/DRK/dark_missionary.png",
+            "ColorHex": "#FFFFFF"
+        }
+	}
+]

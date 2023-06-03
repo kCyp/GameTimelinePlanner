@@ -8,17 +8,19 @@ using System.Threading.Tasks;
 
 namespace GameTimelinePlanner.Infrastructure.Repository;
 
-public class JsonRepository<T> : IRepository<T>
+public abstract class JsonRepository<TypeEntity, TypeId> : IRepository<TypeEntity, TypeId>
 {
-    private readonly JsonContext _JsonContext;
+    protected readonly JsonContext _JsonContext;
 
     public JsonRepository(JsonContext jsonContext)
     {
         _JsonContext = jsonContext;
     }
 
-    public async Task<IList<T>> Get()
+    public virtual async Task<IList<TypeEntity>> Get()
     {
-        return await _JsonContext.CollectionAsync<T>();
+        return await _JsonContext.CollectionAsync<TypeEntity>();
     }
+
+    public abstract Task<TypeEntity> GetById(TypeId id);
 }

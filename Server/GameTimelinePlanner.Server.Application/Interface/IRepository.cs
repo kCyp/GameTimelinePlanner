@@ -2,7 +2,8 @@
 
 namespace GameTimePlanner.Application.Interface;
 
-public interface IRepository<T>
+public interface IRepository<TypeEntity, TypeId>
 {
-    Task<IList<T>> Get();
+    Task<IList<TypeEntity>> Get();
+    Task<TypeEntity> GetById(TypeId id);
 }

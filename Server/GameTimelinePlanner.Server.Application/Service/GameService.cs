@@ -7,26 +7,21 @@ namespace GameTimePlanner.Application.Service;
 public class GameService : IGameService
 {
     private readonly ILogger<GameService> _logger;
-    //private readonly IJobRepository _jobRepository;
-    private readonly IRepository<Job> _jobRepo;
+    private readonly IRepository<Job, string> _jobRepository;
+    private readonly IRepository<Duty, string> _dutyRepository;
 
-    private readonly IRepository<Duty> _dutyRepo;
-
-    public GameService(ILogger<GameService> logger, IRepository<Duty> dutyRepo, IRepository<Job> jobRepo)
+    public GameService(ILogger<GameService> logger, IRepository<Duty, string> dutyRepo, IRepository<Job, string> jobRepo)
     {
-        //_jobRepository = jobRepository;
         _logger = logger;
-        _jobRepo = jobRepo;
-        _dutyRepo = dutyRepo;
+        _jobRepository = jobRepo;
+        _dutyRepository = dutyRepo;
         _logger.LogInformation("GameService created");
     }
 
     public async Task<IList<Job>> GetJobs() {
-        return await _jobRepo.Get();
-        //return await _jobRepository.Get();
+        return await _jobRepository.Get();
     }
     public async Task<IList<Duty>> GetDuties() {
-        return await _dutyRepo.Get();
-        //return await _jobRepository.Get();
+        return await _dutyRepository.Get();
     }
 }

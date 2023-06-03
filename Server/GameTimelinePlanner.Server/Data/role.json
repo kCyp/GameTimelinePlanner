@@ -1,0 +1,63 @@
+[
+	{
+		"Type": 0,
+		"Name": "Tank",
+		"Skills": [
+			{
+				"Name": "Reprisal",
+				"RequiredLevel": 22,
+				"Duration": 10,
+				"Cooldown": 60,
+				"Description": "10% damage reduction",
+				"DisplayDescription": {
+					"IconSource": "FFXIV/Skills/DRK/TankRollAction/reprisal.png",
+					"ColorHex": "#FFFFFF"
+				}
+			}
+		]
+	},
+	{
+		"Type": 1,
+		"Name": "Healer",
+		"Skills": []
+	},
+	{
+		"Type": 2,
+		"Name": "Melee",
+		"Skills": [
+			{
+				"Name": "Reprisal",
+				"RequiredLevel": 22,
+				"Duration": 10,
+				"Cooldown": 60,
+				"Description": "10% damage reduction",
+				"DisplayDescription": {
+					"IconSource": "FFXIV/Skills/DRK/TankRollAction/reprisal.png",
+					"ColorHex": "#FFFFFF"
+				}
+			}
+		]
+	},
+	{
+		"Type": 3,
+		"Name": "MagicalRange",
+		"Skills": [
+			{
+				"Name": "Addle",
+				"RequiredLevel": 22,
+				"Duration": 10,
+				"Cooldown": 60,
+				"Description": "10% damage reduction",
+				"DisplayDescription": {
+					"IconSource": "FFXIV/Skills/DRK/TankRollAction/reprisal.png",
+					"ColorHex": "#FFFFFF"
+				}
+			}
+		]
+	},
+	{
+		"Type": 4,
+		"Name": "PhysicalRange",
+		"Skills": []
+	}
+]

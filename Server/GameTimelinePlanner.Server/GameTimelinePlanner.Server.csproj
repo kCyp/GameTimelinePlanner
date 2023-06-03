@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Content Remove="Data\jobs.json" />
+    <Content Remove="Data\role.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,6 +24,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Data\role.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Data\jobs.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>

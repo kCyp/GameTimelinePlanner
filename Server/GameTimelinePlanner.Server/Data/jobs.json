@@ -1,23 +1,14 @@
 [
 	{
 		"Name": "Dark Knight",
-		"Role": 0,
-		"Skills": [
+		"RoleType": 0,
+		"JobSkills": [
 			{
 				"Name": "Dark Missionary",
+				"RequiredLevel": 80,
 				"Duration": 15,
 				"Cooldown": 90,
 				"Description": "15% magical damage reduction",
-				"DisplayDescription": {
-					"IconSource": "FFXIV/Skills/DRK/dark_missionary.png",
-					"ColorHex": "#FFFFFF"
-				}
-			},
-			{
-				"Name": "Reprisal",
-				"Duration": 10,
-				"Cooldown": 60,
-				"Description": "10% damage reduction",
 				"DisplayDescription": {
 					"IconSource": "FFXIV/Skills/DRK/dark_missionary.png",
 					"ColorHex": "#FFFFFF"
@@ -31,20 +22,11 @@
 	},
 	{
 		"Name": "Warrior",
-		"Role": 0,
-		"Skills": [
-			{
-				"Name": "Reprisal",
-				"Duration": 10,
-				"Cooldown": 60,
-				"Description": "10% damage reduction",
-				"DisplayDescription": {
-					"IconSource": "FFXIV/Skills/DRK/dark_missionary.png",
-					"ColorHex": "#FFFFFF"
-				}
-			},
+		"RoleType": 0,
+		"JobSkills": [
 			{
 				"Name": "PlaceHolder1",
+				"RequiredLevel": 0,
 				"Duration": 0,
 				"Cooldown": 60,
 				"Description": "",
@@ -55,6 +37,7 @@
 			},
 			{
 				"Name": "Placeholder2",
+				"RequiredLevel": 0,
 				"Duration": 0,
 				"Cooldown": 60,
 				"Description": "",
@@ -71,10 +54,11 @@
 	},
 	{
 		"Name": "Sage",
-		"Role": 1,
-		"Skills": [
+		"RoleType": 1,
+		"JobSkills": [
 			{
 				"Name": "Kerachole",
+				"RequiredLevel": 50,
 				"Duration": 10,
 				"Cooldown": 30,
 				"Description": "10% damage reduction",
@@ -85,6 +69,7 @@
 			},
 			{
 				"Name": "Holos",
+				"RequiredLevel": 76,
 				"Duration": 20,
 				"Cooldown": 120,
 				"Description": "",

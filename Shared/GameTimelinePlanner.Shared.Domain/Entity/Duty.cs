@@ -3,7 +3,7 @@ using GameTimelinePlanner.Shared.Domain.Interface;
 
 namespace GameTimelinePlanner.Shared.Domain.Entity;
 
-public class Duty : IDisplayable
+public class Duty : IDisplayable, IIdentifiable<string>
 {
     public Duty(string name, string abbr, DutyDifficulty difficulty, int level, int itemlevel, 
                 string releasePatch, DisplayDescription displayDescription)
@@ -24,4 +24,6 @@ public class Duty : IDisplayable
     public int ItemLevel { get; set; }
     public string ReleasePatch { get; set; }
     public DisplayDescription DisplayDescription { get; init; }
+
+    public string Id => Name;
 }

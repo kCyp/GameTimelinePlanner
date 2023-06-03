@@ -1,4 +1,5 @@
 ﻿using GameTimelinePlanner.Shared.Domain.Entity;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Nodes;
@@ -12,7 +13,14 @@ public class JsonContext
         using FileStream fileStream = new("Data/jobs.json", FileMode.Open);
         IList<Job> jobs = await JsonSerializer.DeserializeAsync<IList<Job>>(fileStream) ?? new List<Job>();
         return jobs;
-    }); 
+    });
+
+    private Lazy<Task<IList<Role>>> _LazyRoles { get; set; } = new Lazy<Task<IList<Role>>>(async () =>
+    {
+        using FileStream fileStream = new("Data/role.json", FileMode.Open);
+        IList<Role> duties = await JsonSerializer.DeserializeAsync<IList<Role>>(fileStream) ?? new List<Role>();
+        return duties;
+    });
 
     private Lazy<Task<IList<Duty>>> _LazyDuties { get; set; } = new Lazy<Task<IList<Duty>>>(async() =>
     {
@@ -26,8 +34,9 @@ public class JsonContext
         return typeof(T) switch
         {
             Type type when type == typeof(Job) => (IList<T>) await _LazyJobs.Value,
+            Type type when type == typeof(Role) => (IList<T>) await _LazyRoles.Value,
             Type type when type == typeof(Duty) => (IList<T>) await _LazyDuties.Value,
             _ => throw new NotImplementedException()
-        }; ;
+        };
     }
 }

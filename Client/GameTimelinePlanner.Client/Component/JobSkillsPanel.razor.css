@@ -2,7 +2,7 @@
     border: double 0.1em silver;
     border-radius: 10px;
     margin: 2em 1em 1em 1em;
-    background-color: #fffffa;
+    background-color: #c1c6ff;
 }
 
 ::deep .job-panel {

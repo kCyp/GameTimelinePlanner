@@ -18,6 +18,7 @@ public class GameService : IGameService
         _logger = logger;
         _jobRepo = jobRepo;
         _dutyRepo = dutyRepo;
+        _logger.LogInformation("GameService created");
     }
 
     public async Task<IList<Job>> GetJobs() {

@@ -2,6 +2,7 @@ using GameTimelinePlanner.Infrastructure.Repository;
 using GameTimelinePlanner.Shared.Domain.Entity;
 using GameTimePlanner.Application.Interface;
 using GameTimePlanner.Application.Service;
+using Microsoft.Extensions.Logging.Console;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,13 @@ builder.Services.AddTransient<IRepository<Job>, JsonRepository<Job>>();
 builder.Services.AddTransient<IRepository<Duty>, JsonRepository<Duty>>();
 builder.Services.AddTransient<JsonContext, JsonContext>();
 builder.Services.AddTransient<IGameService, GameService>();
+
+builder.Services.AddLogging((o) =>
+{
+    o.SetMinimumLevel(LogLevel.Information);
+    o.AddConsole();
+    o.SetMinimumLevel(LogLevel.Trace);
+});
 
 var app = builder.Build();
 

@@ -9,9 +9,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
-builder.Services.AddTransient<IRepository<Job, string>, JsonJobRepository>();
-builder.Services.AddTransient<IRepository<Role, RoleType>, JsonRoleRepository>();
-builder.Services.AddTransient<IRepository<Duty, string>, JsonDutyRepository>();
+builder.Services.AddTransient<IRepository<Job, string>, JsonRepository<Job, string>>();
+builder.Services.AddTransient<IRepository<Role, RoleType>, JsonRepository<Role, RoleType>>();
+builder.Services.AddTransient<IRepository<Duty, string>, JsonRepository<Duty, string>>();
 builder.Services.AddTransient<JsonContext, JsonContext>();
 builder.Services.AddTransient<IGameService, GameService>();
 

@@ -1,4 +1,6 @@
-﻿namespace GameTimelinePlanner.Shared.Domain.Entity;
+﻿using GameTimelinePlanner.Shared.Domain.Interface;
+
+namespace GameTimelinePlanner.Shared.Domain.Entity;
 
 public enum RoleType
 {
@@ -9,11 +11,13 @@ public enum RoleType
     PhysicalRange
 }
 
-public class Role
+public class Role : IIdentifiable<RoleType>
 {
     public RoleType Type { get; set; }
     public string Name { get; set; }
     public IList<Skill> Skills { get; set; } = new List<Skill>();
+
+    public RoleType Id => Type;
 
     public Role(RoleType type, string name, IList<Skill> skills)
     {

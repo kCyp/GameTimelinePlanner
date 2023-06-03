@@ -1,4 +1,5 @@
 ﻿using GameTimelinePlanner.Shared.Domain.Entity;
+using GameTimelinePlanner.Shared.Domain.Interface;
 using GameTimePlanner.Application.Interface;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,8 @@ using System.Threading.Tasks;
 
 namespace GameTimelinePlanner.Infrastructure.Repository;
 
-public abstract class JsonRepository<TypeEntity, TypeId> : IRepository<TypeEntity, TypeId>
+public class JsonRepository<TypeEntity, TypeId> : IRepository<TypeEntity, TypeId> 
+    where TypeEntity : IIdentifiable<TypeId> 
 {
     protected readonly JsonContext _JsonContext;
 
@@ -22,5 +24,10 @@ public abstract class JsonRepository<TypeEntity, TypeId> : IRepository<TypeEntit
         return await _JsonContext.CollectionAsync<TypeEntity>();
     }
 
-    public abstract Task<TypeEntity> GetById(TypeId id);
+    public async Task<TypeEntity> GetById(TypeId id)
+    {
+        TypeEntity entity = (await _JsonContext.CollectionAsync<TypeEntity>())
+            .First(e => EqualityComparer<TypeId>.Default.Equals(e.Id, id));
+        return entity;
+    }
 }

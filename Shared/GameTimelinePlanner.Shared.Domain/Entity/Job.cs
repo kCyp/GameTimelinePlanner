@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace GameTimelinePlanner.Shared.Domain.Entity;
 
-public class Job : IDisplayable
+public class Job : IDisplayable, IIdentifiable<string>
 {
     public Job(string name, RoleType roleType, Role? role, IList<Skill> jobSkills, DisplayDescription displayDescription)
     {
@@ -23,6 +23,8 @@ public class Job : IDisplayable
         JobSkills.Union(Role?.Skills ?? Enumerable.Empty<Skill>())
         .ToList();
     public DisplayDescription DisplayDescription { get; init; }
+
+    public string Id => Name;
 
     public void SetRole(Role role)
     {

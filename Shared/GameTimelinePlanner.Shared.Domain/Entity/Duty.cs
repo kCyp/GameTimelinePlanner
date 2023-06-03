@@ -5,10 +5,11 @@ namespace GameTimelinePlanner.Shared.Domain.Entity;
 
 public class Duty : IDisplayable
 {
-    public Duty(string name, DutyDifficulty difficulty, int level, int itemlevel, string releasePatch, DisplayDescription displayDescription)
-    //public Duty(string name, int level, int itemlevel, string releasePatch, DisplayDescription displayDescription)
+    public Duty(string name, string abbr, DutyDifficulty difficulty, int level, int itemlevel, 
+                string releasePatch, DisplayDescription displayDescription)
     {
         Name = name;
+        Abbr = abbr;
         Difficulty = difficulty;
         Level = level;
         ItemLevel = itemlevel;
@@ -17,6 +18,7 @@ public class Duty : IDisplayable
     }
 
     public string Name { get; set; }
+    public string Abbr { get; set; }
     public DutyDifficulty Difficulty { get; set; }
     public int Level { get; set; }
     public int ItemLevel { get; set; }

@@ -1,0 +1,36 @@
+.duty-card {
+    width: 376px;
+    height: 120px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: grey;
+    position: relative
+}
+
+.duty-card.Ultimate {
+    background-color: indianred;
+    color: indianred;
+}
+
+.duty-card.Savage {
+    background-color: orange;
+    color: orange;
+}
+
+.duty-card div {
+    font-size: 16px;
+    padding-left: 2%;
+    padding-right: 2%;
+    text-shadow: 2px 2px black;
+}
+
+div.abbr {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+div.title {
+    position: absolute;
+    top: 0;
+    right: 0;
+}

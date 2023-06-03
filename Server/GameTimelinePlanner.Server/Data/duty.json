@@ -1,9 +1,10 @@
 [
 	{
 		"Name": "The Omega Protocol",
+        "Abbr": "TOP",
         "Difficulty": 1,
         "Level": 90,
-        "ItemLevel": 375,
+        "ItemLevel": 635,
 		"ReleasePatch": "6.31",
         "DisplayDescription": {
             "IconSource": "FFXIV/Skills/DRK/dark_missionary.png",
@@ -11,7 +12,20 @@
         }
 	},
     {
+		"Name": "Dragonsong's Reprise",
+        "Abbr": "DSR",
+        "Difficulty": 1,
+        "Level": 90,
+        "ItemLevel": 605,
+		"ReleasePatch": "6.11",
+        "DisplayDescription": {
+            "IconSource": "FFXIV/Skills/DRK/dark_missionary.png",
+            "ColorHex": "#FFFFFF"
+        }
+	},
+    {
 		"Name": "The Epic of Alexander",
+        "Abbr": "TEA",
         "Difficulty": 1,
         "Level": 80,
         "ItemLevel": 475,
@@ -23,6 +37,7 @@
 	},
     {
 		"Name": "The Weapon's Refrain",
+        "Abbr": "UWU",
         "Difficulty": 1,
         "Level": 70,
         "ItemLevel": 375,
@@ -34,10 +49,59 @@
 	},
 	{
 		"Name": "The Unending Coil of Bahamut",
+        "Abbr": "UCOB",
         "Difficulty": 1,
         "Level": 70,
         "ItemLevel": 375,
 		"ReleasePatch": "4.11",
+        "DisplayDescription": {
+            "IconSource": "FFXIV/Skills/DRK/dark_missionary.png",
+            "ColorHex": "#FFFFFF"
+        }
+	},
+    {
+		"Name": "Abyssos: The Fifth Circle",
+        "Abbr": "P5S",
+        "Difficulty": 0,
+        "Level": 90,
+        "ItemLevel": 600,
+		"ReleasePatch": "6.2",
+        "DisplayDescription": {
+            "IconSource": "FFXIV/Skills/DRK/dark_missionary.png",
+            "ColorHex": "#FFFFFF"
+        }
+	},
+    {
+		"Name": "Abyssos: The Sixth Circle",
+        "Abbr": "P6S",
+        "Difficulty": 0,
+        "Level": 90,
+        "ItemLevel": 605,
+		"ReleasePatch": "6.2",
+        "DisplayDescription": {
+            "IconSource": "FFXIV/Skills/DRK/dark_missionary.png",
+            "ColorHex": "#FFFFFF"
+        }
+	},
+    {
+		"Name": "Abyssos: The Seventh Circle",
+        "Abbr": "P7S",
+        "Difficulty": 0,
+        "Level": 90,
+        "ItemLevel": 610,
+		"ReleasePatch": "6.2",
+        "DisplayDescription": {
+            "IconSource": "FFXIV/Skills/DRK/dark_missionary.png",
+            "ColorHex": "#FFFFFF"
+        }
+	},
+    {
+		"Name": "Abyssos: The Eigth Circle",
+        "Abbr": "P8S",
+        "Difficulty": 0,
+        "Level": 90,
+        "ItemLevel": 610,
+		"ReleasePatch": "6.2",
         "DisplayDescription": {
             "IconSource": "FFXIV/Skills/DRK/dark_missionary.png",
             "ColorHex": "#FFFFFF"

@@ -1,0 +1,14 @@
+@using GameTimelinePlanner.Shared.Domain.Entity
+
+@if (Duty != null)
+{
+    <div class="duty-card @Duty.Difficulty" style=background-image:url(/Resources/FFXIV/Duties/@(Duty.Abbr).png);>
+        <div class="abbr">@Duty.Abbr</div>
+        <div class="title">@Duty.Name</div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public Duty? Duty { get; set; }
+}

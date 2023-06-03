@@ -1,0 +1,51 @@
+@page "/dutylist"
+@using GameTimelinePlanner.Shared.Domain.Entity;
+@using GameTimelinePlanner.Client.Component;
+@inject HttpClient Http
+
+<PageTitle>Duty list</PageTitle>
+
+<h1>Duty list</h1>
+
+@if (_duties == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    @if (_ultimate_duties != null)
+    {
+        <h2>Ultimate Raids</h2>
+        <div class="duties-panel">
+        @foreach (var duty in _ultimate_duties)
+        {
+            <DutyCard Duty="@duty" />
+        }
+        </div>
+    }
+    @if (_savage_duties != null)
+    {
+        <h2>Savage Raids</h2>
+        <div class="duties-panel">
+        @foreach (var duty in _savage_duties)
+        {
+            <DutyCard Duty="@duty" />
+        }
+        </div>
+    }
+}
+
+@code {
+    private IList<Duty>? _duties;
+    private IList<Duty> _ultimate_duties = new List<Duty>();
+    private IList<Duty> _savage_duties = new List<Duty>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        _duties = await Http.GetFromJsonAsync<IList<Duty>>("game/duties");
+        _ultimate_duties = (_duties ?? Enumerable.Empty<Duty>())
+            .Where(d => d.Difficulty == DutyDifficulty.Ultimate).ToList();
+        _savage_duties = (_duties ?? Enumerable.Empty<Duty>())
+            .Where(d => d.Difficulty == DutyDifficulty.Savage).ToList();
+    }
+}

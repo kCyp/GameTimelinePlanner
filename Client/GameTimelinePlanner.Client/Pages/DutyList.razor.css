@@ -1,0 +1,20 @@
+.duties-panel {
+    display: flex;
+    flex-wrap: wrap;
+    transition: all 1s;
+    gap: 1rem;
+    justify-content: center;
+}
+
+h2 {
+    font-size: 22px;
+    border-bottom: 2px solid;
+}
+
+.duties-panel > div {
+    flex: auto;
+    width: 376px;
+    height: 120px;
+    min-width: 185px;
+    min-height: 60px;
+}

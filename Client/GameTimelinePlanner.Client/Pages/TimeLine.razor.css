@@ -1,0 +1,49 @@
+#timeline-container {
+    width: 50vw;
+    height: 50vw;
+    --cell-size: 40px;
+}
+
+#timeline {
+    display: grid;
+    grid-template-columns: 20% 10% 10% 10% 10% 10% 10% 10% 10%;
+}
+
+#timeline span.cell {
+    display: grid;
+    height: var(--cell-size);
+    background-color: grey;
+    border: black dotted 1px;
+    z-index: -10;
+}
+
+#timeline div {
+    display: grid;
+}
+
+.role {
+    background-size: var(--cell-size);
+    background-repeat: round;
+}
+
+#tank {
+    /*background-image: url(Resources/FFXIV/Jobs/Role/TankRole.png);*/
+    background-color: royalblue;
+    grid-column: 2/4;
+    grid-row: 1/16;
+}
+
+#healer {
+    /*background-image: url(Resources/FFXIV/Jobs/Role/HealerRole.png);*/
+    background-color: olivedrab;
+    grid-column: 4/6;
+    grid-row: 1/16;
+}
+
+#dps {
+    /*background-image: url(Resources/FFXIV/Jobs/Role/DPSRole.png);*/
+    background-color: darkred;
+    grid-column: 6/-1;
+    grid-row: 1/16;
+}
+

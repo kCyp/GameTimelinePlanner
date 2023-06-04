@@ -4,11 +4,22 @@
 		"Name": "Tank",
 		"Skills": [
 			{
+				"Name": "Rampart",
+				"RequiredLevel": 8,
+				"Duration": 20,
+				"Cooldown": 90,
+				"Description": "Reduces damage taken by 20%.",
+				"DisplayDescription": {
+					"IconSource": "FFXIV/Skills/DRK/TankRollAction/rampart.png",
+					"ColorHex": "#FFFFFF"
+				}
+			},
+			{
 				"Name": "Reprisal",
 				"RequiredLevel": 22,
 				"Duration": 10,
 				"Cooldown": 60,
-				"Description": "10% damage reduction",
+				"Description": "Reduces damage dealt by nearby enemies by 10%.",
 				"DisplayDescription": {
 					"IconSource": "FFXIV/Skills/DRK/TankRollAction/reprisal.png",
 					"ColorHex": "#FFFFFF"
@@ -26,13 +37,13 @@
 		"Name": "Melee",
 		"Skills": [
 			{
-				"Name": "Reprisal",
+				"Name": "Feint",
 				"RequiredLevel": 22,
 				"Duration": 10,
-				"Cooldown": 60,
-				"Description": "10% damage reduction",
+				"Cooldown": 90,
+				"Description": "Lowers target's physical damage dealt by 10% and magic damage dealt by 5%.",
 				"DisplayDescription": {
-					"IconSource": "FFXIV/Skills/DRK/TankRollAction/reprisal.png",
+					"IconSource": "FFXIV/Skills/NIN/MeleeRollAction/feint.png",
 					"ColorHex": "#FFFFFF"
 				}
 			}
@@ -44,12 +55,12 @@
 		"Skills": [
 			{
 				"Name": "Addle",
-				"RequiredLevel": 22,
+				"RequiredLevel": 8,
 				"Duration": 10,
-				"Cooldown": 60,
-				"Description": "10% damage reduction",
+				"Cooldown": 90,
+				"Description": "Lowers target's physical damage dealt by 5% and magic damage dealt by 10%.",
 				"DisplayDescription": {
-					"IconSource": "FFXIV/Skills/DRK/TankRollAction/reprisal.png",
+					"IconSource": "FFXIV/Skills/BLM/MagicalRangedRollAction/addle.png",
 					"ColorHex": "#FFFFFF"
 				}
 			}

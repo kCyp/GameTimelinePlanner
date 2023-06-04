@@ -6,15 +6,24 @@
     justify-content: center;
 }
 
-h2 {
-    font-size: 22px;
-    border-bottom: 2px solid;
+div.duties-header {
+    margin: 1rem;
+    background: lightskyblue;
+    color: indigo;
+    font-size: 24px;
+    text-align: center;
+}
+
+div.duties-header img.icon {
+    max-height: 32px;
+    max-width: 32px;
+    margin-right: 0.5rem;
 }
 
 .duties-panel > div {
     flex: auto;
-    width: 376px;
-    height: 120px;
+    max-width: 376px;
+    max-height: 120px;
     min-width: 185px;
     min-height: 60px;
 }

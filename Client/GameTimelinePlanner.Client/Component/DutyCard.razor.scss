@@ -1,0 +1,45 @@
+$ultimate-color: #cd5c5c;
+$savage-color: #ffa500;
+
+@mixin SetColor($baseColor) {
+    background-color: $baseColor;
+    color: $baseColor;
+    .abbr {
+        text-shadow: 2px 2px darken($baseColor, 30%), 0 0 5px $baseColor, 0 0 15px black;
+    }
+    .title {
+        background-color: rgba( darken($baseColor, 30%), 0.6);
+    }
+}
+
+.duty-card {
+    width: 376px; // size of the background images
+    height: 120px;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: grid;
+    grid-template-rows: 40% 20% 40%;
+
+    &.Ultimate{
+        @include SetColor($ultimate-color)
+    }
+    &.Savage{
+        @include SetColor($savage-color)
+    }
+}
+
+div.abbr {
+    font-size: 26px;
+    font-weight: bold;
+    padding-left: 2%;
+}
+
+div.title {
+    font-size: 16px;
+    text-align: center;
+    width: 100%;
+    span {
+        text-shadow: 1px 1px black;
+    }
+}

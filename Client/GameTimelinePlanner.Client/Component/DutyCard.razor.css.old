@@ -1,0 +1,53 @@
+.duty-card {
+    --ultimate-color: #cd5c5c;
+    --ultimate-color-darker: #722323;
+    --savage-color: #ffa500;
+    --savage-color-darker: #9F6700;
+
+    width: 376px;
+    height: 120px;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: grid;
+    grid-template-rows: 40% 20% 40%;
+}
+
+.duty-card.Ultimate {
+    background-color: var(--ultimate-color);
+    color: var(--ultimate-color);
+}
+
+.duty-card.Savage {
+    background-color: var(--savage-color);
+    color: var(--savage-color);
+}
+
+.duty-card.Ultimate .abbr {
+    text-shadow: 2px 2px var(--ultimate-color-darker), 0 0 5px var(--ultimate-color), 0px 0px 15px black;
+}
+
+.duty-card.Savage .abbr {
+    text-shadow: 2px 2px var(--savage-color-darker), 0 0 5px var(--savage-color), 0px 0px 15px black;
+}
+
+div.abbr {
+    font-size: 26px;
+    font-weight: bold;
+    padding-left: 2%;
+    color: white;
+}
+
+div.title {
+    font-size: 16px;
+    text-align: center;
+}
+
+div.title span {
+    text-shadow: 1px 1px black;
+}
+
+div.transbox {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.6);
+}

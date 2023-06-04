@@ -1,0 +1,14 @@
+{
+    "Arguments": "--error-css",
+    "SourceFolder": "Styles",
+    "TargetFolder": "wwwroot/css",
+    "GenerateScopedCss": true,
+    "ScopedCssFolders": ["Views", "Pages", "Shared", "Component"],
+    "IncludePaths": [],
+
+    "Configurations": {
+        "Debug": {
+          "Arguments": "--style=expanded"
+        }
+    }
+}

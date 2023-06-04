@@ -1,36 +1,45 @@
 .duty-card {
-    width: 376px;
-    height: 120px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: grey;
-    position: relative
+  width: 376px;
+  height: 120px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: grid;
+  grid-template-rows: 40% 20% 40%;
 }
-
 .duty-card.Ultimate {
-    background-color: indianred;
-    color: indianred;
+  background-color: #cd5c5c;
+  color: #cd5c5c;
 }
-
+.duty-card.Ultimate .abbr {
+  text-shadow: 2px 2px #6e2222, 0 0 5px #cd5c5c, 0 0 15px black;
+}
+.duty-card.Ultimate .title {
+  background-color: rgba(110, 34, 34, 0.6);
+}
 .duty-card.Savage {
-    background-color: orange;
-    color: orange;
+  background-color: #ffa500;
+  color: #ffa500;
 }
-
-.duty-card div {
-    font-size: 16px;
-    padding-left: 2%;
-    padding-right: 2%;
-    text-shadow: 2px 2px black;
+.duty-card.Savage .abbr {
+  text-shadow: 2px 2px #664200, 0 0 5px #ffa500, 0 0 15px black;
+}
+.duty-card.Savage .title {
+  background-color: rgba(102, 66, 0, 0.6);
 }
 
 div.abbr {
-    font-size: 26px;
-    font-weight: bold;
+  font-size: 26px;
+  font-weight: bold;
+  padding-left: 2%;
 }
 
 div.title {
-    position: absolute;
-    top: 0;
-    right: 0;
+  font-size: 16px;
+  text-align: center;
+  width: 100%;
 }
+div.title span {
+  text-shadow: 1px 1px black;
+}
+
+/*# sourceMappingURL=DutyCard.razor.css.map */

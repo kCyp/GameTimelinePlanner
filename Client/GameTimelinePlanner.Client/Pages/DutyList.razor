@@ -15,8 +15,11 @@ else
 {
     @if (_ultimate_duties != null)
     {
-        <h2>Ultimate Raids</h2>
-        <div class="duties-panel">
+        <div class="duties-header" >
+            <img class="icon" src="Resources/FFXIV/Others/ultiraid.png">
+            <span>Ultimate Raids</span>
+        </div>
+        <div class="duties-panel collapsible">
         @foreach (var duty in _ultimate_duties)
         {
             <DutyCard Duty="@duty" />
@@ -24,9 +27,12 @@ else
         </div>
     }
     @if (_savage_duties != null)
-    {
-        <h2>Savage Raids</h2>
-        <div class="duties-panel">
+{
+        <div class="duties-header">
+            <img class="icon" src="Resources/FFXIV/Others/raid.png">
+            <span>Savage Raids</span>
+        </div>
+        <div class="duties-panel collapsible">
         @foreach (var duty in _savage_duties)
         {
             <DutyCard Duty="@duty" />

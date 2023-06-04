@@ -1,0 +1,42 @@
+@page "/timeline"
+@using GameTimelinePlanner.Shared.Domain.Entity;
+@using GameTimelinePlanner.Client.Component;
+@inject HttpClient Http
+
+<PageTitle>Timeline builder</PageTitle>
+
+<h1>Timeline builder</h1>
+
+<div id="header">
+    <div id="duty"> </div>
+    <div id="roster"> </div>
+</div>
+
+<div id="timeline-container">
+    <div id="timeline">
+        @for (int i = 0; i < 9*15; i++)
+        {
+            <span class="cell"></span>
+        }
+        <div id="tank" class="role"></div>
+        <div id="healer" class="role"></div>
+        <div id="dps" class="role"></div>
+    </div>
+</div>
+
+
+
+@code {
+    private IList<Duty>? _duties;
+    private IList<Duty> _ultimate_duties = new List<Duty>();
+    private IList<Duty> _savage_duties = new List<Duty>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        _duties = await Http.GetFromJsonAsync<IList<Duty>>("game/duties");
+        _ultimate_duties = (_duties ?? Enumerable.Empty<Duty>())
+            .Where(d => d.Difficulty == DutyDifficulty.Ultimate).ToList();
+        _savage_duties = (_duties ?? Enumerable.Empty<Duty>())
+            .Where(d => d.Difficulty == DutyDifficulty.Savage).ToList();
+    }
+}

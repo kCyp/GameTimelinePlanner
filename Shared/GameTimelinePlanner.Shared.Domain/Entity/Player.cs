@@ -41,10 +41,14 @@ public class Player : IDisplayable, IIdentifiable<string>
 
     public bool HasSkillActive(Skill skill, int time) 
     {
-        return SkillUsage[skill].Any(t => t + skill.Duration >= time);
+        return 
+            SkillUsage.ContainsKey(skill) && 
+            SkillUsage[skill].Any( t => t <= time && t + skill.Duration >= time );
     }
     public bool HasSkillReady(Skill skill, int time) {
-        return SkillUsage[skill].All(t => t + skill.Cooldown > time);
+        if ( !Job.Skills.Contains(skill)) { return false; }
+        // no key = not used yet
+        return !SkillUsage.ContainsKey(skill) || SkillUsage[skill].All(t => t + skill.Cooldown < time);
     }
     
     public IList<Skill> GetActiveSkills(int time) {

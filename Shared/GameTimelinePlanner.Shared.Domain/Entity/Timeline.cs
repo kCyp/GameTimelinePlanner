@@ -28,9 +28,13 @@ public class Timeline
 
     public void UseSkill(Player player, Skill skill, int time )
     {
-        if (!player.HasSkillReady(skill, time)) 
+        /*if (!player.HasSkillReady(skill, time)) 
         {
             throw new NotImplementedException();
+        }*/
+        if (!player.SkillUsage.ContainsKey(skill))
+        {
+            player.SkillUsage[skill] = new List<int>();
         }
         player.SkillUsage[skill].Add(time);
     }

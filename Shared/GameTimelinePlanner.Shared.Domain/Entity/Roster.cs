@@ -2,9 +2,9 @@
 
 public class Roster
 {
-    public IList<Job> Players { get; set; }
+    public IList<Player> Players { get; set; }
 
-    public Roster(IList<Job> players)
+    public Roster(IList<Player> players)
     {
         Players = players;
     }

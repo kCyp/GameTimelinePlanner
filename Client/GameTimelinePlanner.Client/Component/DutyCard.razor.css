@@ -4,7 +4,10 @@
   background-repeat: no-repeat;
   background-size: cover;
   display: grid;
-  grid-template-rows: 40% 20% 40%;
+  grid-template-rows: 40% 40% 20%;
+  grid-template-columns: 20% 60% 20%;
+  font-weight: bold;
+  text-align: center;
 }
 .duty-card.Ultimate {
   background-color: #cd5c5c;
@@ -13,8 +16,9 @@
 .duty-card.Ultimate .abbr {
   text-shadow: 2px 2px #6e2222, 0 0 5px #cd5c5c, 0 0 15px black;
 }
-.duty-card.Ultimate .title {
-  background-color: rgba(110, 34, 34, 0.6);
+.duty-card.Ultimate .transbox {
+  background: linear-gradient(to right, rgba(205, 92, 92, 0.6) 0%, rgba(110, 34, 34, 0.6) 10% 90%, rgba(205, 92, 92, 0.6) 100%);
+  border-top: solid 1px rgba(232, 65, 65, 0.8);
 }
 .duty-card.Savage {
   background-color: #ffa500;
@@ -23,23 +27,48 @@
 .duty-card.Savage .abbr {
   text-shadow: 2px 2px #664200, 0 0 5px #ffa500, 0 0 15px black;
 }
-.duty-card.Savage .title {
-  background-color: rgba(102, 66, 0, 0.6);
+.duty-card.Savage .transbox {
+  background: linear-gradient(to right, rgba(255, 165, 0, 0.6) 0%, rgba(102, 66, 0, 0.6) 10% 90%, rgba(255, 165, 0, 0.6) 100%);
+  border-top: solid 1px rgba(255, 165, 0, 0.8);
 }
 
-div.abbr {
+span.abbr {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  grid-column-start: 1;
+  grid-row-start: 1;
   font-size: 26px;
-  font-weight: bold;
-  padding-left: 2%;
 }
 
-div.title {
-  font-size: 16px;
+div.name {
+  grid-row-start: 3;
+  grid-column: 1/-1;
   text-align: center;
   width: 100%;
+    span {
+      font-size: 16px;
+      text-shadow: 1px 1px black;
+    }
 }
-div.title span {
-  text-shadow: 1px 1px black;
+
+span.info {
+  font-size: 14px;
+  text-shadow: 1px 1px 1px black;
+  font-weight: lighter;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+.level {
+  grid-row-start: 3;
+  grid-column-start: 1;
+}
+
+.patch {
+  grid-row-start: 3;
+  grid-column-start: 3;
 }
 
 /*# sourceMappingURL=DutyCard.razor.css.map */

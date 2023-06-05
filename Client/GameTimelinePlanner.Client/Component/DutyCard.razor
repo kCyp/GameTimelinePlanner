@@ -3,10 +3,12 @@
 @if (Duty != null)
 {
     <div class="duty-card @Duty.Difficulty" style=background-image:url(/Resources/FFXIV/Duties/@(Duty.Abbr).png);>
-        <div class="abbr">@Duty.Abbr</div>
-        <div class="title transbox">
+        <div class="transbox name">
             <span>@Duty.Name</span>
         </div>
+        <span class="abbr">@Duty.Abbr</span>
+        <span class="patch info">@Duty.ReleasePatch</span>
+        <span class="level info">Lv.@Duty.Level</span>
     </div>
 }
 

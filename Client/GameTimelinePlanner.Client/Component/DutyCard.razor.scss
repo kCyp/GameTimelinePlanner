@@ -7,8 +7,14 @@ $savage-color: #ffa500;
     .abbr {
         text-shadow: 2px 2px darken($baseColor, 30%), 0 0 5px $baseColor, 0 0 15px black;
     }
-    .title {
-        background-color: rgba( darken($baseColor, 30%), 0.6);
+    .transbox {
+        background: linear-gradient(
+            to right,
+            rgba( $baseColor, 0.6) 0%,
+            rgba( darken($baseColor, 30%), 0.6) 10% 90%,
+            rgba( $baseColor, 0.6) 100%
+        );
+        border-top: solid 1px rgba( saturate($baseColor, 25%), 0.8);
     }
 }
 
@@ -19,7 +25,10 @@ $savage-color: #ffa500;
     background-size: cover;
 
     display: grid;
-    grid-template-rows: 40% 20% 40%;
+    grid-template-rows: 40% 40% 20%;
+    grid-template-columns: 20% 60% 20%;
+    font-weight: bold;
+    text-align: center;
 
     &.Ultimate{
         @include SetColor($ultimate-color)
@@ -29,17 +38,44 @@ $savage-color: #ffa500;
     }
 }
 
-div.abbr {
+span.abbr {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+
+    grid-column-start: 1;
+    grid-row-start: 1;
+
     font-size: 26px;
-    font-weight: bold;
-    padding-left: 2%;
 }
 
-div.title {
-    font-size: 16px;
+div.name {
+    grid-row-start: 3;
+    grid-column: 1 / -1;
+
     text-align: center;
     width: 100%;
     span {
+        font-size: 16px;
         text-shadow: 1px 1px black;
     }
+}
+
+span.info {
+    font-size: 14px;
+    text-shadow: 1px 1px 1px black;
+    font-weight: lighter;
+
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.level {
+    grid-row-start: 3;
+    grid-column-start: 1;
+}
+.patch {
+    grid-row-start: 3;
+    grid-column-start: 3;
 }

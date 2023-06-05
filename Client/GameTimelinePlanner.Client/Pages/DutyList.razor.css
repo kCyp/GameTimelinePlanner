@@ -2,12 +2,12 @@
     display: flex;
     flex-wrap: wrap;
     transition: all 1s;
-    gap: 1rem;
+    gap: 1em;
     justify-content: center;
 }
 
 div.duties-header {
-    margin: 1rem;
+    margin: 1em;
     background: lightskyblue;
     color: indigo;
     font-size: 24px;

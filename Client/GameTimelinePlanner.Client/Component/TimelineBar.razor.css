@@ -1,0 +1,38 @@
+﻿.timeline-skill {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.timeline-container {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    overflow: hidden;
+    scrollbar-width: thin;
+    width: 100%;
+    border: 1px solid black;
+}
+
+.timeline-bar {
+    border: 1px solid black;
+    height: 20px;
+    width: 8000px;
+    margin: 10px;
+    background-image: repeating-linear-gradient(to right, transparent 0 1.9em, #00000007 1.9em 2em);
+}
+
+.timeline-all-portions {
+    display: flex;
+    flex-direction: row;
+    width:fit-content;
+}
+
+.timeline-portion {
+    width: 20px;
+    height: 25px;   
+}
+
+.timeline-portion + .timeline-portion {
+    border-left: 1px solid black;
+}

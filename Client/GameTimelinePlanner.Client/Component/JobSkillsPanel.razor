@@ -3,11 +3,13 @@
 @if (Job != null)
 {
     <div class="job-skills-panel">
-        <JobPanel Job="@Job" />
+        <div class="job-panel-container">
+            <JobPanel Job="@Job" />
+        </div>
         <div class="skills-panel">
             @foreach (Skill skill in Job.Skills)
             {
-                <SkillPanel Skill="@skill"/>            
+                <SkillPanel Skill="@skill" />
             }
         </div>
     </div>

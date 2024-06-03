@@ -1,0 +1,11 @@
+﻿@using GameTimelinePlanner.Shared.Domain.Entity
+
+@if (Skill != null)
+{
+    <img class="skill-icon" src="Resources/@Skill.DisplayDescription.IconSource">
+}
+
+@code {
+    [Parameter]
+    public Skill? Skill { get; set; }
+}

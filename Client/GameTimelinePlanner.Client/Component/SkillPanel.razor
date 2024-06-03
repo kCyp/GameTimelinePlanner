@@ -3,7 +3,9 @@
 @if (Skill != null)
 {
     <div class="skill-panel">
-        <img class="skill-icon" src="Resources/@Skill.DisplayDescription.IconSource">
+        <div class="icon-container">
+            <SkillIcon Skill="Skill" />
+        </div>
         <div class="skill-informations">
             <div class="information">
                 <span class="information-icon oi oi-book" />

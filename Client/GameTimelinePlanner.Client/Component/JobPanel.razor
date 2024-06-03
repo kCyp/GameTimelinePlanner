@@ -3,7 +3,7 @@
 @if (Job != null)
 {
     <div class="job-panel" style="--job-color: @Job.DisplayDescription.ColorHex">
-        <img class="job-icon" src="Resources/@Job.DisplayDescription.IconSource" />
+        <JobIcon Job="Job"  />
         <label class="job-name">@Job.Name</label>
     </div>
 }

@@ -14,11 +14,9 @@
     box-shadow: var(--job-color) 0px 0px 10px;
 }
 
-.job-icon {
-    width: 3em;
-}
 .job-name {
     font-weight: bold;
     align-self: center;
+    text-align: end;
     color: var(--job-color);
 }

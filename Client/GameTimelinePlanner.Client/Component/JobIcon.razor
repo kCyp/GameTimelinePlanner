@@ -1,0 +1,11 @@
+﻿@using GameTimelinePlanner.Shared.Domain.Entity
+
+@if (Job != null)
+{
+    <img class="job-icon" src="Resources/@Job.DisplayDescription.IconSource" />
+}
+
+@code {
+    [Parameter]
+    public Job? Job { get; set; }
+}

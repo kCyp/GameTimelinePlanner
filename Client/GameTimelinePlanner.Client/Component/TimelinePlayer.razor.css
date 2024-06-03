@@ -1,0 +1,17 @@
+﻿.timeline-skills-panel {
+    margin-left: 1em;
+    transition: all linear 0.1s;
+    transform-origin: top;
+    transform: scaleY(1);
+    max-height: 1000px;
+}
+    .timeline-skills-panel.hidden {
+        visibility: collapse;
+        transform: scaleY(0);
+        max-height: 0px;
+    }
+
+.clickable-job {
+    width: fit-content;
+    cursor: pointer;
+}

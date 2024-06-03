@@ -1,0 +1,24 @@
+﻿@using GameTimelinePlanner.Shared.Domain.Entity;
+
+<div class="timeline-skill">
+    <SkillIcon Skill="Skill" />
+    <div class="timeline-container">
+        @* <div class="timeline-bar" /> *@
+        <div class="timeline-all-portions">
+
+            @for (int i = 0; i < 100; i++)
+            {
+                <div class="timeline-portion"></div>
+            }
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public Skill? Skill { get; set; }
+
+    // [Parameter]
+    // public ? Duty { get; set; }
+
+}

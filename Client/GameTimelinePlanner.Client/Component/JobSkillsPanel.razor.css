@@ -5,7 +5,7 @@
     background-color: #c1c6ff;
 }
 
-::deep .job-panel {
+.job-panel-container {
     margin-left: -1em;
     margin-top: -2em;
 }

@@ -1,0 +1,30 @@
+﻿@using GameTimelinePlanner.Shared.Domain.Entity;
+
+@if (Job != null)
+{
+    <div class="timeline-player">
+        <div class="timeline-job">
+
+            <div class="clickable-job" @onclick="DisplayToggle">
+                <JobIcon Job="Job" />
+            </div>
+        </div>
+        <div class="timeline-skills-panel @($"{(!_Display ? "hidden" : "")}")" >
+            @foreach (var skill in Job.Skills)
+            {
+                <TimelineBar Skill="@skill" />
+            }
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public Job? Job { get; set; }
+    private bool _Display = true;
+
+    private void DisplayToggle()
+    {
+        _Display = !_Display;
+    }
+}

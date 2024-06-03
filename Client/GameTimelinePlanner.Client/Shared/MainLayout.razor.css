@@ -5,6 +5,7 @@
 }
 
 main {
+    width: calc(100% - 250px);
     flex: 1;
 }
 

@@ -9,10 +9,8 @@
     background-color: #fcfcfc;
 }
 
-.skill-icon {
+.icon-container {
     align-self: center;
-    width: 5em;
-    height: 5em;
 }
 
 .skill-informations {

@@ -1,16 +1,17 @@
 ﻿@using GameTimelinePlanner.Shared.Domain.Entity;
 
-@if (Job != null)
+@if (Player != null && Player.Job != null)
 {
     <div class="timeline-player">
         <div class="timeline-job">
 
             <div class="clickable-job" @onclick="DisplayToggle">
-                <JobIcon Job="Job" />
+                <JobIcon Job="Player.Job" />
             </div>
         </div>
-        <div class="timeline-skills-panel @($"{(!_Display ? "hidden" : "")}")" >
-            @foreach (var skill in Job.Skills)
+        <div class="timeline-skills-panel @($"{(!_Display ? "hidden" : "")}")" 
+            style="--numberOfSkills: @Player.Job.Skills.Count;">
+            @foreach (var skill in Player.Job.Skills)
             {
                 <TimelineBar Skill="@skill" />
             }
@@ -20,7 +21,7 @@
 
 @code {
     [Parameter]
-    public Job? Job { get; set; }
+    public Player? Player { get; set; }
     private bool _Display = true;
 
     private void DisplayToggle()

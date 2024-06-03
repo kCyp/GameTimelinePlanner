@@ -1,0 +1,42 @@
+﻿@using GameTimelinePlanner.Shared.Domain.Entity
+@inject HttpClient Http;
+
+@if (Jobs != null)
+{
+    <div class="selector-container">
+        @foreach (var job in Jobs)
+        {
+            <div class="job-selector" @onclick="() => { HandleJobClick(job); }">
+                <JobIcon Job="job" />
+            </div>
+        }
+    </div>
+}
+
+
+
+@code {
+    [Parameter]
+    public Job? PlayerJob
+    {
+        get; set;
+    }
+
+    [Parameter]
+    public EventCallback<Job> PlayerJobChanged { get; set; }
+
+    [Parameter]
+    public IList<Job>? Jobs { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+    }
+
+    private void HandleJobClick(Job job)
+    {
+        Console.WriteLine(job.Name);
+        PlayerJob = job;
+        PlayerJobChanged.InvokeAsync(PlayerJob);
+    }
+}

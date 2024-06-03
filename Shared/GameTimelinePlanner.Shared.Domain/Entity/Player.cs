@@ -16,12 +16,25 @@ public class Player : IDisplayable, IIdentifiable<string>
         SkillUsage = skillUsage;
     }
 
+    public Player(Job job)
+    {
+        Job = job;
+        Name = string.Empty;
+        SkillUsage = new Dictionary<Skill, IList<int>>();
+        DisplayDescription = new DisplayDescription();
+    }
+
+    public Player()
+    {
+        Name= string.Empty;
+    }
+
     // TODO: need a better unique identifier
     public string Name { get; set; }
-    public Job Job { get; set; }
+    public Job? Job { get; set; }
 
-    public IDictionary<Skill, IList<int>> SkillUsage { get; set; }
-    public DisplayDescription DisplayDescription { get; init; }
+    public IDictionary<Skill, IList<int>>? SkillUsage { get; set; }
+    public DisplayDescription? DisplayDescription { get; init; }
     public string Id => Name;
 
     public override int GetHashCode()

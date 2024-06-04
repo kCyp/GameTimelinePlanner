@@ -12,6 +12,7 @@
     scrollbar-width: thin;
     width: 100%;
     border: 1px solid black;
+    border-radius: 5px;
 }
 
 .timeline-bar {
@@ -33,8 +34,12 @@
     height: 25px;
 }
 
-.timeline-portion:hover {
-    background-color: lime
+.timeline-portion.potential {
+    background-color: lime;
+}
+
+.timeline-portion.potential-follow-up {
+    background-color: yellow;
 }
 
 .timeline-portion + .timeline-portion {

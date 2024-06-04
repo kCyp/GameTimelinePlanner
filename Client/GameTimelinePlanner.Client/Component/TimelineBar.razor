@@ -1,20 +1,55 @@
 ﻿@using GameTimelinePlanner.Shared.Domain.Entity;
+@using System.Text
 
-<div class="timeline-skill">
-    <SkillIcon Skill="Skill" />
-    <div class="timeline-container">
-        @* <div class="timeline-bar" /> *@
-        <div class="timeline-all-portions">
+@if (Skill != null)
+{
+    <div class="timeline-skill">
+        <SkillIcon Skill="Skill" />
+        <div class="timeline-container">
+            @* <div class="timeline-bar" /> *@
+            <div class="timeline-all-portions">
 
-            @for (int i = 0; i < 100; i++)
-            {
-                <div class="timeline-portion"></div>
-            }
+                @for (int i = 0; i < 100; i++)
+                {
+                    int index = i;
+                    <div class="timeline-portion @(GetClassOfPortion(index))"
+                         @onmouseenter="() => SetPotentialIndex(index)"
+                         @onmouseleave="() => SetPotentialIndex(null)">
+                    </div>
+                }
+            </div>
         </div>
     </div>
-</div>
+}
 
 @code {
     [Parameter]
     public Skill? Skill { get; set; }
+
+    decimal? potentialCastPortionIndex;
+    decimal? potentielCastLastFollowUpIndex;
+
+    private void SetPotentialIndex(int? index)
+    {
+        potentialCastPortionIndex = index;
+
+        var durationAsPortion = (Skill!.Duration / 2.5m);
+        potentielCastLastFollowUpIndex = potentialCastPortionIndex + durationAsPortion;
+    }
+
+    private string GetClassOfPortion(int index)
+    {
+        StringBuilder sb = new();
+
+        if (index == potentialCastPortionIndex)
+        {
+            sb.Append("potential");
+        }
+        else if (index > potentialCastPortionIndex && index <= potentielCastLastFollowUpIndex)
+        {
+            sb.Append("potential-follow-up");
+        }
+
+        return sb.ToString();
+    }
 }

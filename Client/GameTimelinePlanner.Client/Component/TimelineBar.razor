@@ -4,7 +4,9 @@
 @if (Skill != null)
 {
     <div class="timeline-skill">
-        <SkillIcon Skill="Skill" />
+        <div class=timeline-header>
+            <SkillIcon Skill="Skill" />
+        </div>
         <div class="timeline-container">
             @* <div class="timeline-bar" /> *@
             <div class="timeline-all-portions">
@@ -28,6 +30,7 @@
 
     decimal? potentialCastPortionIndex;
     decimal? potentielCastLastFollowUpIndex;
+    decimal? potentielCastLastCooldownIndex;
 
     private void SetPotentialIndex(int? index)
     {
@@ -35,6 +38,9 @@
 
         var durationAsPortion = (Skill!.Duration / 2.5m);
         potentielCastLastFollowUpIndex = potentialCastPortionIndex + durationAsPortion;
+        
+        var cooldownAsPortion = (Skill!.Cooldown / 2.5m);
+        potentielCastLastCooldownIndex = potentialCastPortionIndex + cooldownAsPortion;
     }
 
     private string GetClassOfPortion(int index)
@@ -48,6 +54,10 @@
         else if (index > potentialCastPortionIndex && index <= potentielCastLastFollowUpIndex)
         {
             sb.Append("potential-follow-up");
+        }
+        else if (index > potentielCastLastFollowUpIndex && index <= potentielCastLastCooldownIndex)
+        {
+            sb.Append("potential-cooldown");
         }
 
         return sb.ToString();

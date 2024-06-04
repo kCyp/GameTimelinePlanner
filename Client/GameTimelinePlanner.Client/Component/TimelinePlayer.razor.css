@@ -9,11 +9,17 @@
     max-width: calc(var(--numberOfSkills) * 60px)
 
 }
-    .timeline-skills-panel.hidden {
-        visibility: collapse;
-        transform: scaleX(0);
-        max-width: 0px;
-    }
+
+.timeline-skills-panel.hidden {
+    visibility: collapse;
+    transform: scaleX(0);
+    max-width: 0px;
+}
+
+.timeline-job {
+    display: flex;
+    justify-content: center;
+}
 
 .clickable-job {
     width: fit-content;

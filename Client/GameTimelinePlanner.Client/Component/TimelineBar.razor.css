@@ -2,6 +2,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
 }
 
 .timeline-container {
@@ -13,6 +14,12 @@
     width: 100%;
     border: 1px solid black;
     border-radius: 5px;
+}
+
+.timeline-header {
+    background-color: white;
+    position: sticky;
+    top: 3.5em;
 }
 
 .timeline-bar {
@@ -40,6 +47,10 @@
 
 .timeline-portion.potential-follow-up {
     background-color: yellow;
+}
+
+.timeline-portion.potential-cooldown {
+    background-color: gray;
 }
 
 .timeline-portion + .timeline-portion {

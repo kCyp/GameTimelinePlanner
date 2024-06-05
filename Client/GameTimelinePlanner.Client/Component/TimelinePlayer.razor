@@ -14,7 +14,7 @@
             style="--numberOfSkills: @Player.Job.Skills.Count;">
             @foreach (var skill in Player.Job.Skills)
             {
-                <TimelineBar Skill="@skill" />
+                <TimelineBar Player="Player" Skill="@skill" />
             }
         </div>
     </div>

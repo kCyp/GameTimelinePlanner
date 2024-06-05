@@ -33,7 +33,7 @@
 .timeline-all-portions {
     display: flex;
     flex-direction: column;
-    height:fit-content;
+    height: fit-content;
 }
 
 .timeline-portion {
@@ -41,11 +41,15 @@
     height: 25px;
 }
 
+.timeline-portion + .timeline-portion {
+    border-top: 1px solid black;
+}
+
 .timeline-portion.potential {
     background-color: lime;
 }
 
-.timeline-portion.potential-follow-up {
+.timeline-portion.potential-active {
     background-color: yellow;
 }
 
@@ -53,6 +57,14 @@
     background-color: gray;
 }
 
-.timeline-portion + .timeline-portion {
-    border-top: 1px solid black;
+.timeline-portion.skill {
+    background-color: dodgerblue;
+}
+
+.timeline-portion.skill-active {
+    background-color: deepskyblue;
+}
+
+.timeline-portion.skill-cooldown {
+    background-color: gray;
 }

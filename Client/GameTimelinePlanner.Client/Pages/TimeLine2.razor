@@ -13,15 +13,16 @@
         <div class="boss-timeline">
         </div>
 
-        @foreach (var player in _players)
+        @for (int i = 0; i < _players.Count; i++)
         {
+            var player = _players[i];
             if (player.Job == null)
             {
                 <JobSelector Jobs="_jobs" @bind-PlayerJob="player.Job" />
             }
             else
             {
-                <TimelinePlayer Player="player" />
+                <TimelinePlayer @bind-Player="player" />
             }
         }
     </div>
@@ -31,23 +32,6 @@
 @code {
     private IList<Job>? _jobs { get; set; }
     private IList<Player> _players = new List<Player>() { new(), new(), new(), new(), new(), new(), new(), new() };
-
-
-    // private IList<Job> _jobs = await Http.GetFromJsonAsync<IList<Job>>("game/jobs");
-
-
-    // private IList<Duty>? _duties;
-    // private IList<Duty> _ultimate_duties = new List<Duty>();
-    // private IList<Duty> _savage_duties = new List<Duty>();
-
-    // protected override async Task OnInitializedAsync()
-    // {
-    //     _duties = await Http.GetFromJsonAsync<IList<Duty>>("game/duties");
-    //     _ultimate_duties = (_duties ?? Enumerable.Empty<Duty>())
-    //         .Where(d => d.Difficulty == DutyDifficulty.Ultimate).ToList();
-    //     _savage_duties = (_duties ?? Enumerable.Empty<Duty>())
-    //         .Where(d => d.Difficulty == DutyDifficulty.Savage).ToList();
-    // }
 
     protected override async Task OnInitializedAsync()
     {

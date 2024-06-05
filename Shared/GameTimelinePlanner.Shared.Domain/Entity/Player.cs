@@ -1,39 +1,36 @@
-using GameTimelinePlanner.Shared.Domain.Entity;
 using GameTimelinePlanner.Shared.Domain.Interface;
-using System.Text.Json.Serialization;
 
 namespace GameTimelinePlanner.Shared.Domain.Entity;
 
 public class Player : IDisplayable, IIdentifiable<string>
 {
 
-    public Player(string name, Job job, IDictionary<Skill, IList<int>> skillUsage, 
+    public Player(string name, Job job, IDictionary<Skill, IList<SkillUsage>> skillUsage,
                 DisplayDescription displayDescription)
     {
         Name = name;
         Job = job;
         DisplayDescription = displayDescription;
-        SkillUsage = skillUsage;
+        SkillsUsage = skillUsage;
     }
 
     public Player(Job job)
     {
         Job = job;
         Name = string.Empty;
-        SkillUsage = new Dictionary<Skill, IList<int>>();
         DisplayDescription = new DisplayDescription();
     }
 
     public Player()
     {
-        Name= string.Empty;
+        Name = string.Empty;
     }
 
     // TODO: need a better unique identifier
     public string Name { get; set; }
     public Job? Job { get; set; }
 
-    public IDictionary<Skill, IList<int>>? SkillUsage { get; set; }
+    public IDictionary<Skill, IList<SkillUsage>> SkillsUsage { get; set; } = new Dictionary<Skill, IList<SkillUsage>>();
     public DisplayDescription? DisplayDescription { get; init; }
     public string Id => Name;
 
@@ -52,21 +49,70 @@ public class Player : IDisplayable, IIdentifiable<string>
         return Name.Equals(player.Name);
     }
 
-    public bool HasSkillActive(Skill skill, int time) 
+    public bool AddSkillUsage(Skill skill, decimal useTime)
     {
-        return 
-            SkillUsage.ContainsKey(skill) && 
-            SkillUsage[skill].Any( t => t <= time && t + skill.Duration >= time );
+        var success = true;
+
+        if (!SkillsUsage.TryGetValue(skill, out IList<SkillUsage>? usages))
+        {
+            usages = new List<SkillUsage>();
+            SkillsUsage.Add(skill, usages);
+        }
+
+        usages.Add(new SkillUsage(skill, useTime));
+
+        return success;
     }
-    public bool HasSkillReady(Skill skill, int time) {
-        if ( !Job.Skills.Contains(skill)) { return false; }
+
+    public void RemoveSkillUsage(Skill skill, decimal time)
+    {
+        if (SkillsUsage.ContainsKey(skill)
+            && SkillsUsage[skill].Any(su => su.StartTime == time))
+        {
+            var skillUsageToDelete = SkillsUsage[skill].First(su => su.StartTime == time);
+            SkillsUsage[skill].Remove(skillUsageToDelete);
+        }
+    }
+
+    public bool HasSkillAtExactStartTime(Skill skill, decimal time)
+    {
+        return
+            SkillsUsage.ContainsKey(skill) &&
+            SkillsUsage[skill].Any(usage => usage.StartTime == time);
+    }
+
+    public bool HasSkillActive(Skill skill, decimal time)
+    {
+        return
+            SkillsUsage.ContainsKey(skill) &&
+            SkillsUsage[skill].Any(usage => usage.IsActiveAt(time));
+    }
+
+    public bool HasSkillReady(Skill skill, decimal time)
+    {
+        if (!Job.Skills.Contains(skill)) 
+        { 
+            return false; 
+        }
         // no key = not used yet
-        return !SkillUsage.ContainsKey(skill) || SkillUsage[skill].All(t => t + skill.Cooldown < time);
+        return !SkillsUsage.ContainsKey(skill) || SkillsUsage[skill].All(t => !t.IsInCooldownAt(time));
     }
-    
-    public IList<Skill> GetActiveSkills(int time) {
+
+    public bool HasSkillInCooldown(Skill skill, decimal time)
+    {
+        if (!Job.Skills.Contains(skill))
+        {
+            return false;
+        }
+
+        return SkillsUsage.ContainsKey(skill) && SkillsUsage[skill].Any(t => t.IsInCooldownAt(time));
+
+    }
+
+    public IList<Skill> GetActiveSkills(decimal time)
+    {
         return Job.Skills
-                  .Where(skill => this.HasSkillActive(skill, time) )
+                  .Where(skill => this.HasSkillActive(skill, time))
                   .ToList();
     }
 }

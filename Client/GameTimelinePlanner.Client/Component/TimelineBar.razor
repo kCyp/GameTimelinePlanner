@@ -15,8 +15,9 @@
                 {
                     int index = i;
                     <div class="timeline-portion @(GetClassOfPortion(index))"
-                         @onmouseenter="() => SetPotentialIndex(index)"
-                         @onmouseleave="() => SetPotentialIndex(null)">
+                         @onmouseenter="() => SetPotentialUsage(index)"
+                         @onmouseleave="() => DeletePotentialUsage()"
+                         @onclick="() => ToggleUsage(index)">
                     </div>
                 }
             </div>
@@ -28,38 +29,80 @@
     [Parameter]
     public Skill? Skill { get; set; }
 
-    decimal? potentialCastPortionIndex;
-    decimal? potentielCastLastFollowUpIndex;
-    decimal? potentielCastLastCooldownIndex;
+    [Parameter]
+    public Player? Player { get; set; }
 
-    private void SetPotentialIndex(int? index)
+    private SkillUsage? _PotentialUsage { get; set; }
+
+    private static readonly decimal _DurationOfPortion = 2.5m;
+
+    private void SetPotentialUsage(int index)
     {
-        potentialCastPortionIndex = index;
+        decimal useTime = _DurationOfPortion * index;
+        _PotentialUsage = new SkillUsage(Skill!, useTime);
+    }
 
-        var durationAsPortion = (Skill!.Duration / 2.5m);
-        potentielCastLastFollowUpIndex = potentialCastPortionIndex + durationAsPortion;
-        
-        var cooldownAsPortion = (Skill!.Cooldown / 2.5m);
-        potentielCastLastCooldownIndex = potentialCastPortionIndex + cooldownAsPortion;
+    private void DeletePotentialUsage()
+    {
+        _PotentialUsage = null;
+    }
+
+    private void ToggleUsage(int index)
+    {
+        if (Player != null && Skill != null)
+        {
+            decimal timeOfPortion = _DurationOfPortion * index;
+
+            if (Player.HasSkillAtExactStartTime(Skill, timeOfPortion))
+            {
+                Player.RemoveSkillUsage(Skill, timeOfPortion);
+            }
+            else
+            {
+                Player.AddSkillUsage(Skill, timeOfPortion);
+            }
+        }
     }
 
     private string GetClassOfPortion(int index)
     {
-        StringBuilder sb = new();
-
-        if (index == potentialCastPortionIndex)
+        if (Player == null || Skill == null)
         {
-            sb.Append("potential");
-        }
-        else if (index > potentialCastPortionIndex && index <= potentielCastLastFollowUpIndex)
-        {
-            sb.Append("potential-follow-up");
-        }
-        else if (index > potentielCastLastFollowUpIndex && index <= potentielCastLastCooldownIndex)
-        {
-            sb.Append("potential-cooldown");
+            return string.Empty;
         }
 
-        return sb.ToString();
+        decimal timeOfPortion = _DurationOfPortion * index;
+        if (_PotentialUsage != null)
+        {
+            if (_PotentialUsage.StartTime == timeOfPortion)
+            {
+                return "potential";
+            }
+            if (_PotentialUsage.IsActiveAt(timeOfPortion))
+            {
+                return "potential-active";
+            }
+            if (_PotentialUsage.IsInCooldownAt(timeOfPortion))
+            {
+                return "potential-cooldown";
+            }
+        }
+
+        if (Player.HasSkillAtExactStartTime(Skill, timeOfPortion))
+        {
+            return "skill";
+        }
+
+        if (Player.HasSkillActive(Skill, timeOfPortion))
+        {
+            return "skill-active";
+        }
+
+        if (Player.HasSkillInCooldown(Skill, timeOfPortion))
+        {
+            return "skill-cooldown";
+        }
+
+        return string.Empty;
     }
 }

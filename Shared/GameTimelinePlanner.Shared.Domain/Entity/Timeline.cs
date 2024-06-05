@@ -13,7 +13,7 @@ public class Timeline
         Roster = roster;
     }
 
-    public IList<ActiveSkill> GetActiveSkills(int time) 
+    public IList<ActiveSkill> GetActiveSkills(decimal time) 
     {
         var _activeSkills = new List<ActiveSkill>();
         foreach( Player player in Roster.Players )
@@ -26,17 +26,17 @@ public class Timeline
         return _activeSkills;
     }
 
-    public void UseSkill(Player player, Skill skill, int time )
+    public void UseSkill(Player player, Skill skill, decimal time )
     {
         /*if (!player.HasSkillReady(skill, time)) 
         {
             throw new NotImplementedException();
         }*/
-        if (!player.SkillUsage.ContainsKey(skill))
+        if (!player.SkillsUsage.ContainsKey(skill))
         {
-            player.SkillUsage[skill] = new List<int>();
+            player.SkillsUsage[skill] = new List<SkillUsage>();
         }
-        player.SkillUsage[skill].Add(time);
+        player.SkillsUsage[skill].Add(new SkillUsage(skill, time));
     }
 
 }

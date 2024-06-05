@@ -1,3 +1,45 @@
-﻿.job-selector {
+﻿.selector-container {
+    position: relative;
+    min-width: 250px;
+    height: fit-content
+}
+
+.job-placeholder {
+    margin: auto;
+    cursor: pointer;
+    width: 3em;
+    height: 3em;
+    border: 1px solid black;
+    border-radius: 5px;
+    align-content: center;
+    text-align: center;
+}
+
+.job-container {
+    display: flex;
+    justify-content: space-around;
+    align-content: space-around;
+    flex-flow: row wrap;
+    position: absolute;
+    background-color: #dcdcdc;
+    border-radius: 5px;
+    padding: 0.5em;
+    transform: translateX(-50%);
+    z-index: 10;
+    box-shadow: rgba(0,0,0,255) 2px 2px;
+    left: 50%;
+    bottom: 80%;
+    transition: opacity linear 0.2s;
+}
+
+.visible {
+    opacity: 1;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.job-selector {
     cursor: pointer;
 }

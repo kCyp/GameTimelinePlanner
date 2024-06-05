@@ -7,27 +7,26 @@
 
 <PageTitle>Timeline builder</PageTitle>
 
-@if (_jobs != null)
-{
-    <div class="timeline-container">
-    <TimelineSettings Jobs="_jobs" @bind-Players="_players" />
+<div class="timeline-container">
+    @if (_jobs != null)
+    {
+        <TimelineSettings Jobs="_jobs" @bind-Players="_players" />
 
-    <div class="timeline">
-        <div class="boss-timeline">
-        </div>
+        <div class="timeline">
+            <div class="boss-timeline">
+            </div>
 
-        @for (int i = 0; i < _players.Count; i++)
-        {
-            var player = _players[i];
-            if (player.Job != null)
+            @for (int i = 0; i < _players.Count; i++)
             {
-                <TimelinePlayer @bind-Player="player" />
+                var player = _players[i];
+                if (player.Job != null)
+                {
+                    <TimelinePlayer @bind-Player="player" />
+                }
             }
-        }
         </div>
-
-    </div>
-}
+    }
+</div>
 
 
 @code {

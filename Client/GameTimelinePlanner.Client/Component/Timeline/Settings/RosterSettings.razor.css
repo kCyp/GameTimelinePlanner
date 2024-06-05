@@ -15,10 +15,15 @@
     margin: auto;
 }
 
+.radio-label {
+    display: inline-flex;
+    gap: 0.5em;
+}
+
 .roster-type-group {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    margin: auto;
 }
 
 .roster-jobs {

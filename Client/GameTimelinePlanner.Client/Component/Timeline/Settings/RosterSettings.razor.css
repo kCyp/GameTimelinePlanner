@@ -1,0 +1,29 @@
+.roster-settings {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: fit-content;
+}
+
+.roster-type {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+}
+
+.roster-type-select {
+    margin: auto;
+}
+
+.roster-type-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.roster-jobs {
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+    margin: auto;
+}

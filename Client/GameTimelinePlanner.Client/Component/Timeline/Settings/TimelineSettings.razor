@@ -1,0 +1,21 @@
+@using GameTimelinePlanner.Shared.Domain.Entity
+
+@if (Jobs != null && Players != null)
+{
+    <div class="settings-container">
+        <div class="duty-selector"></div>
+        <RosterSettings Jobs="Jobs" @bind-Players="Players" @bind-Players:after="async () => await PlayersChanged.InvokeAsync(Players)" />
+    </div>
+}
+
+@code
+{
+    [Parameter]
+    public IList<Job>? Jobs { get; set; }
+
+    [Parameter]
+    public IList<Player>? Players { get; set; }
+
+    [Parameter]
+    public EventCallback<IList<Player>?> PlayersChanged { get; set; }
+}

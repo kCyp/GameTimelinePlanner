@@ -8,7 +8,6 @@
             <div class="clickable-job" @onclick="DisplayToggle">
                 <JobIcon Job="Player.Job" />
             </div>
-            <button class="remove-job" @onclick="UnselectJob">⟳</button>
         </div>
         <div class="timeline-skills-panel @($"{(!_Display ? "hidden" : "")}")" 
             style="--numberOfSkills: @Player.Job.Skills.Count;">
@@ -32,11 +31,5 @@
     private void DisplayToggle()
     {
         _Display = !_Display;
-    }
-
-    private async Task UnselectJob(MouseEventArgs e)
-    {
-        Player!.Job = null;
-        await PlayerChanged.InvokeAsync();
     }
 }

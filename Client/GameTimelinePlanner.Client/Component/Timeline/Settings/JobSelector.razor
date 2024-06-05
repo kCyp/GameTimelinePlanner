@@ -4,9 +4,20 @@
 @if (Jobs != null)
 {
     <div class="selector-container">
-        <div class="job-placeholder"
-            @onclick="ToggleOpen">?</div>
-    <div class="job-container @($" {(_IsOpen ? "visible" : "hidden" )}")">
+        <div class="job-placeholder" @onclick="ToggleOpen">
+            @if (PlayerJob != null)
+            {
+                <JobIcon Job="PlayerJob" />
+            }
+            else
+            { 
+                @("?")
+            }
+        </div>
+        <div class="job-container @($" {(_IsOpen ? "visible" : "hidden" )}")">
+            <div class="job-placeholder" @onclick="() => { HandleJobClick(null); }">
+                @("?")
+            </div>
             @foreach (var job in Jobs.OrderBy(j => j.Role?.Type))
             {
                 <div class="job-selector" @onclick="() => { HandleJobClick(job); }">
@@ -45,6 +56,13 @@
         _IsOpen = false;
         PlayerJob = job;
         PlayerJobChanged.InvokeAsync(PlayerJob);
+        Console.WriteLine(PlayerJob?.Name);
+    }
+
+    private async Task UnselectJob(MouseEventArgs e)
+    {
+        PlayerJob = null;
+        await PlayerJobChanged.InvokeAsync(PlayerJob);
     }
 
     private void ToggleOpen(MouseEventArgs e)

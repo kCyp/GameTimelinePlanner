@@ -1,0 +1,11 @@
+.settings-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    border: 1px double black;
+    border-radius: 30px;
+    padding: 15px;
+    background-color: lightgoldenrodyellow;
+    width: fit-content;
+    margin: auto;
+}

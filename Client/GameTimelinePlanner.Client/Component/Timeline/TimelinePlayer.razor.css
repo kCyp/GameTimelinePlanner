@@ -3,7 +3,7 @@
     gap: 10px;
     flex-direction: row;
     transition: all linear 0.1s;
-    transform-origin: center;
+    transform-origin: left;
     transform: scaleX(1);
     max-width: calc(var(--numberOfSkills) * 60px)
 }
@@ -23,15 +23,4 @@
 .clickable-job {
     width: fit-content;
     cursor: pointer;
-}
-
-.remove-job {
-    position: absolute;
-    bottom: 100%;
-    left: 100%;
-    transform: translateX(-65%) translateY(65%);
-    border-radius: 5px;
-    width: 1.5em;
-    height: 1.5em;
-    line-height: 1em;
 }

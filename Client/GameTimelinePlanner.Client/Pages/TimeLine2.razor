@@ -1,14 +1,17 @@
 @page "/timeline2"
+@using GameTimelinePlanner.Client.Component.Timeline
+@using GameTimelinePlanner.Client.Component.Timeline.Settings
 @using GameTimelinePlanner.Shared.Domain.Entity;
 @using GameTimelinePlanner.Client.Component;
 @inject HttpClient Http
 
 <PageTitle>Timeline builder</PageTitle>
 
-<h1>Timeline</h1>
-
 @if (_jobs != null)
 {
+    <div class="timeline-container">
+    <TimelineSettings Jobs="_jobs" @bind-Players="_players" />
+
     <div class="timeline">
         <div class="boss-timeline">
         </div>
@@ -16,15 +19,13 @@
         @for (int i = 0; i < _players.Count; i++)
         {
             var player = _players[i];
-            if (player.Job == null)
-            {
-                <JobSelector Jobs="_jobs" @bind-PlayerJob="player.Job" />
-            }
-            else
+            if (player.Job != null)
             {
                 <TimelinePlayer @bind-Player="player" />
             }
         }
+        </div>
+
     </div>
 }
 

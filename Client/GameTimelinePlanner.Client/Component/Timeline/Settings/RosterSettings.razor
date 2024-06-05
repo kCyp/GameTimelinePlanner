@@ -1,0 +1,45 @@
+@using GameTimelinePlanner.Shared.Domain.Entity
+@if (Jobs != null && Players != null)
+{
+    <div class="roster-settings">
+        <InputRadioGroup Name="rosterTypeGroup" @bind-Value="RosterType">
+            <div class="roster-type">
+                <div class="roster-type-select">
+                    Roster type:
+                </div>
+                <div class="roster-type-group">
+                    <div>
+                        <InputRadio id="type1" Name="rosterTypeGroup" Value="RosterType.Standard" />
+                        <label for="type1">Standard</label>
+                    </div>
+                    <div>
+                        <InputRadio id="type2" Name="rosterTypeGroup" Value="RosterType.Free" />
+                        <label for="type2">Free</label>
+                    </div>
+                </div>
+            </div>
+            <div></div>
+        </InputRadioGroup>
+
+        <div class="roster-jobs">
+            @for (int i = 0; i < Players.Count; i++)
+            {
+                var player = Players[i];
+                <JobSelector Jobs="Jobs" @bind-PlayerJob="player.Job" @bind-PlayerJob:after="async () => await PlayersChanged.InvokeAsync(Players)"></JobSelector>
+            }
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public IList<Job>? Jobs { get; set; }
+
+    [Parameter]
+    public IList<Player>? Players { get; set; }
+
+    [Parameter]
+    public EventCallback<IList<Player>> PlayersChanged { get; set; }
+
+    private RosterType RosterType = RosterType.Standard;
+}

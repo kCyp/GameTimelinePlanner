@@ -1,4 +1,5 @@
-﻿using GameTimelinePlanner.Shared.Domain.Interface;
+﻿using System.Dynamic;
+using GameTimelinePlanner.Shared.Domain.Interface;
 
 namespace GameTimelinePlanner.Shared.Domain.Entity;
 
@@ -8,6 +9,7 @@ public class Skill : IDisplayable
     {
         Name = name;
         RequiredLevel = requiredLevel;
+        LevelMax = null;
         Duration = duration;
         Cooldown = cooldown;
         Description = description;
@@ -16,9 +18,11 @@ public class Skill : IDisplayable
 
     public string Name { get; private init; }
     public int RequiredLevel { get; private init; }
+    public int? LevelMax{ get; private init; }
     public decimal Duration { get; private init; }
     public decimal Cooldown { get; private init; }
     public string Description { get; private init; }
+    
     public DisplayDescription DisplayDescription { get; init; }
 
     public override int GetHashCode()
@@ -33,5 +37,11 @@ public class Skill : IDisplayable
             return false;
         }
         return Name.Equals(skill.Name);
+    }
+
+    public bool IsUsableAtLevel(int level) 
+    {
+        return RequiredLevel <= level &&
+        LevelMax == null || level < LevelMax;
     }
 }

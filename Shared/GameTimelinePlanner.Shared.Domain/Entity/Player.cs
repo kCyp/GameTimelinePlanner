@@ -62,7 +62,7 @@ public class Player : IDisplayable, IIdentifiable<string>
         {
             return Job.Skills;
         }
-        return Job.Skills.Where(skill => skill.RequiredLevel <= Level)
+        return Job.Skills.Where(skill => skill.IsUsableAtLevel(Level ?? 0))
             .ToList();
     }
 
@@ -133,7 +133,7 @@ public class Player : IDisplayable, IIdentifiable<string>
 
     public IList<Skill> GetActiveSkills(decimal time)
     {
-        return GetSkills()
+        return SkillsUsage.Keys
                   .Where(skill => this.HasSkillActive(skill, time))
                   .ToList();
     }

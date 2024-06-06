@@ -2,16 +2,16 @@
 
 @if (Player != null && Player.Job != null)
 {
-    <div class="timeline-player">
-        <div class="timeline-job">
-
+    <div class="timeline-player" data-orientation=@Orientation>
+        <div class="timeline-job" data-orientation=@Orientation>
             <div class="clickable-job" @onclick="DisplayToggle">
                 <JobIcon Job="Player.Job" />
             </div>
         </div>
         <div class="timeline-skills-panel @($"{(!_Display ? "hidden" : "")}")" 
-            style="--numberOfSkills: @Player.Job.Skills.Count;">
-            @foreach (var skill in Player.Job.Skills)
+            style="--numberOfSkills: @Player.GetSkills().Count;"
+            data-orientation=@Orientation>
+            @foreach (var skill in Player.GetSkills())
             {
                 <TimelineBar Player="Player" Skill="@skill" />
             }
@@ -26,6 +26,8 @@
     [Parameter]
     public EventCallback<Player> PlayerChanged { get; set; }
 
+    [CascadingParameter]
+    public string? Orientation { get; set; }
     private bool _Display = true;
 
     private void DisplayToggle()

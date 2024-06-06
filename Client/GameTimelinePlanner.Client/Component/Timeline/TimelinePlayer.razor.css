@@ -1,26 +1,49 @@
-﻿.timeline-skills-panel {
-    display: flex;
-    gap: 10px;
-    flex-direction: row;
-    transition: all linear 0.1s;
-    transform-origin: left;
-    transform: scaleX(1);
-    max-width: calc(var(--numberOfSkills) * 60px)
+.timeline-player[data-orientation=horizontal] {
+  display: flex;
 }
 
-.timeline-skills-panel.hidden {
-    visibility: collapse;
-    transform: scaleX(0);
-    max-width: 0px;
+.timeline-skills-panel {
+  display: flex;
+  gap: 10px;
+  transition: all linear 0.1s;
+}
+.timeline-skills-panel[data-orientation=vertical] {
+  flex-direction: row;
+  transform-origin: left;
+  transform: scaleX(1);
+  max-width: calc(var(--numberOfSkills) * 60px);
+}
+.timeline-skills-panel[data-orientation=vertical].hidden {
+  visibility: collapse;
+  transform: scaleX(0);
+  max-width: 0px;
+}
+.timeline-skills-panel[data-orientation=horizontal] {
+  flex-direction: column;
+  transform-origin: top;
+  transform: scaleY(1);
+  max-height: calc(var(--numberOfSkills) * 60px);
+}
+.timeline-skills-panel[data-orientation=horizontal].hidden {
+  visibility: collapse;
+  transform: scaleY(0);
+  max-height: 0px;
 }
 
 .timeline-job {
-    position: relative;
-    width:fit-content;
-    margin: auto;
+  display: flex;
+}
+.timeline-job[data-orientation=vertical] {
+  width: fit-content;
+  margin: auto;
+}
+.timeline-job[data-orientation=horizontal] {
+  align-self: center;
 }
 
 .clickable-job {
-    width: fit-content;
-    cursor: pointer;
+  width: fit-content;
+  cursor: pointer;
 }
+
+/*# sourceMappingURL=TimelinePlayer.razor.css.map */

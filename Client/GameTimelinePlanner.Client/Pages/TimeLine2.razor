@@ -8,11 +8,13 @@
 <PageTitle>Timeline builder</PageTitle>
 
 <div class="timeline-container">
+    <CascadingValue Value=@Orientation>
     @if (_jobs != null)
     {
-        <TimelineSettings Jobs="_jobs" @bind-Players="_players" />
+        <button @onclick=ChangeOrientation style="width: 50px;"> ??? </button>
 
-        <div class="timeline">
+        <TimelineSettings Jobs="_jobs" @bind-Players="_players" />
+        <div class="timeline" data-orientation=@Orientation>
             <div class="boss-timeline">
             </div>
 
@@ -26,6 +28,7 @@
             }
         </div>
     }
+    </CascadingValue>
 </div>
 
 
@@ -33,6 +36,11 @@
     private IList<Job>? _jobs { get; set; }
     private IList<Player> _players = new List<Player>() { new(), new(), new(), new(), new(), new(), new(), new() };
 
+    private string Orientation {get; set; } = "vertical";
+
+    private void ChangeOrientation() {
+        Orientation = Orientation == "vertical" ? "horizontal" : "vertical";
+    }
     protected override async Task OnInitializedAsync()
     {
         _jobs = await Http.GetFromJsonAsync<IList<Job>>("game/jobs");

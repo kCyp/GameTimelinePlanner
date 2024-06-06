@@ -1,0 +1,104 @@
+﻿.timeline-skill {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+
+    &[data-orientation="vertical"] {
+        flex-direction: column;
+    }
+    &[data-orientation="horizontal"] {
+        flex-direction: row;
+    }
+}
+
+.timeline-container {
+    display: flex;
+    align-self: stretch;
+    overflow: hidden;
+    scrollbar-width: thin;
+    border: 1px solid black;
+    border-radius: 5px;
+    &[data-orientation="vertical"] {
+        flex-direction: column;
+    }
+    &[data-orientation="horizontal"] {
+        flex-direction: row;
+    }
+}
+
+.timeline-header {
+    background-color: white;
+    position: sticky;
+    &[data-orientation="vertical"] {
+        top: 3.5em;
+    }
+    &[data-orientation="horizontal"] {
+        left: 0.5em;
+    }
+}
+
+.timeline-bar {
+    border: 1px solid black;
+    height: 8000px;
+    width: 20px;
+    margin: 10px;
+    background-image: repeating-linear-gradient(to bottom, transparent 0 1.9em, #00000007 1.9em 2em);
+}
+
+.timeline-all-portions {
+    display: flex;
+    &[data-orientation="vertical"] {
+        flex-direction: column;
+        height: fit-content;
+    }
+    &[data-orientation="horizontal"] {
+        flex-direction: row;
+        width: fit-content;
+    }
+}
+
+$portion-size: 25px;
+.timeline-portion {
+    cursor: pointer;
+    &[data-orientation="vertical"] {
+        height: $portion-size;
+    }
+    &[data-orientation="horizontal"] {
+        width: $portion-size;
+        height: 100%;
+    }
+}
+
+.timeline-portion + .timeline-portion {
+    $border-style: 1px solid black;
+    &[data-orientation="vertical"] {
+        border-top: $border-style;
+    }
+    &[data-orientation="horizontal"] {
+        border-left: $border-style;
+    }
+}
+
+.timeline-portion.potential {
+    background-color: lime;
+}
+
+.timeline-portion.potential-active {
+    background-color: yellow;
+}
+
+.timeline-portion.potential-cooldown {
+    background-color: gray;
+}
+
+.timeline-portion.skill {
+    background-color: dodgerblue;
+}
+
+.timeline-portion.skill-active {
+    background-color: deepskyblue;
+}
+
+.timeline-portion.skill-cooldown {
+    background-color: gray;
+}

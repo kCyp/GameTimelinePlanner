@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Diagnostics.Tracing;
 using GameTimelinePlanner.Shared.Domain.Interface;
 
 namespace GameTimelinePlanner.Shared.Domain.Entity;
@@ -29,6 +31,7 @@ public class Player : IDisplayable, IIdentifiable<string>
     // TODO: need a better unique identifier
     public string Name { get; set; }
     public Job? Job { get; set; }
+    public int? Level { get; set; }
 
     public IDictionary<Skill, IList<SkillUsage>> SkillsUsage { get; set; } = new Dictionary<Skill, IList<SkillUsage>>();
     public DisplayDescription? DisplayDescription { get; init; }
@@ -47,6 +50,25 @@ public class Player : IDisplayable, IIdentifiable<string>
             return false;
         }
         return Name.Equals(player.Name);
+    }
+
+    public IList<Skill> GetSkills()
+    {
+        if (Job == null) 
+        {
+            return new List<Skill>();
+        }
+        if (Level == null)
+        {
+            return Job.Skills;
+        }
+        return Job.Skills.Where(skill => skill.RequiredLevel <= Level)
+            .ToList();
+    }
+
+    public bool HasSkill(Skill skill) 
+    {
+        return GetSkills().Contains(skill);
     }
 
     public bool AddSkillUsage(Skill skill, decimal useTime)
@@ -90,7 +112,7 @@ public class Player : IDisplayable, IIdentifiable<string>
 
     public bool HasSkillReady(Skill skill, decimal time)
     {
-        if (!Job.Skills.Contains(skill)) 
+        if (!HasSkill(skill)) 
         { 
             return false; 
         }
@@ -100,7 +122,7 @@ public class Player : IDisplayable, IIdentifiable<string>
 
     public bool HasSkillInCooldown(Skill skill, decimal time)
     {
-        if (!Job.Skills.Contains(skill))
+        if (!HasSkill(skill))
         {
             return false;
         }
@@ -111,7 +133,7 @@ public class Player : IDisplayable, IIdentifiable<string>
 
     public IList<Skill> GetActiveSkills(decimal time)
     {
-        return Job.Skills
+        return GetSkills()
                   .Where(skill => this.HasSkillActive(skill, time))
                   .ToList();
     }

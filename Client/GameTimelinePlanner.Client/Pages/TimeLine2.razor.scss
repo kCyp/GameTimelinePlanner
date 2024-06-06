@@ -1,0 +1,16 @@
+/*.timeline {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}*/
+
+.timeline {
+    display: flex;
+    gap: 10px;
+    &[data-orientation="vertical"] {
+        flex-direction: row;
+    }
+    &[data-orientation="horizontal"] {
+        flex-direction: column;
+    }
+}

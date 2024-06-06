@@ -3,21 +3,22 @@
 
 @if (Skill != null)
 {
-    <div class="timeline-skill">
-        <div class=timeline-header>
+    <div class="timeline-skill" data-orientation=@Orientation>
+        <div class=timeline-header data-orientation=@Orientation>
             <SkillIcon Skill="Skill" />
         </div>
-        <div class="timeline-container">
+        <div class="timeline-container" data-orientation=@Orientation>
             @* <div class="timeline-bar" /> *@
-            <div class="timeline-all-portions">
+            <div class="timeline-all-portions" data-orientation=@Orientation>
 
                 @for (int i = 0; i < 100; i++)
                 {
                     int index = i;
                     <div class="timeline-portion @(GetClassOfPortion(index))"
-                         @onmouseenter="() => SetPotentialUsage(index)"
-                         @onmouseleave="() => DeletePotentialUsage()"
-                         @onclick="() => ToggleUsage(index)">
+                        data-orientation=@Orientation
+                        @onmouseenter="() => SetPotentialUsage(index)"
+                        @onmouseleave="() => DeletePotentialUsage()"
+                        @onclick="() => ToggleUsage(index)">
                     </div>
                 }
             </div>
@@ -31,6 +32,9 @@
 
     [Parameter]
     public Player? Player { get; set; }
+    
+    [CascadingParameter]
+    public string? Orientation { get; set; }
 
     private SkillUsage? _PotentialUsage { get; set; }
 

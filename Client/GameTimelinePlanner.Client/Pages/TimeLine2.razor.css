@@ -1,11 +1,17 @@
-.timeline-container {
+/*.timeline {
     display: flex;
-    flex-direction: column;
     gap: 10px;
+    flex-direction: column;
+}*/
+.timeline {
+  display: flex;
+  gap: 10px;
+}
+.timeline[data-orientation=vertical] {
+  flex-direction: row;
+}
+.timeline[data-orientation=horizontal] {
+  flex-direction: column;
 }
 
-.timeline {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-}
+/*# sourceMappingURL=TimeLine2.razor.css.map */

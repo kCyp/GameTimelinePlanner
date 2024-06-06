@@ -1,0 +1,53 @@
+﻿$skill-size: 60px;
+
+.timeline-player[data-orientation="horizontal"] {
+    display: flex;
+}
+
+.timeline-skills-panel {
+    display: flex;
+    gap: 10px;
+    transition: all linear 0.1s;
+
+    &[data-orientation="vertical"] {
+        flex-direction: row;
+        transform-origin: left;
+        transform: scaleX(1);
+        max-width: calc(var(--numberOfSkills) * $skill-size);
+
+        &.hidden {
+            visibility: collapse;
+            transform: scaleX(0);
+            max-width: 0px;
+        }
+    }
+
+    &[data-orientation="horizontal"] {
+        flex-direction: column;
+        transform-origin: top;
+        transform: scaleY(1);
+        max-height: calc(var(--numberOfSkills) * $skill-size);
+        
+        &.hidden {
+            visibility: collapse;
+            transform: scaleY(0);
+            max-height: 0px;
+        }
+    }
+}
+
+.timeline-job {
+    display: flex;
+    &[data-orientation="vertical"] {
+        width: fit-content;
+        margin: auto;
+    }
+    &[data-orientation="horizontal"] {
+        align-self: center;
+    }
+}
+
+.clickable-job {
+    width: fit-content;
+    cursor: pointer;
+}

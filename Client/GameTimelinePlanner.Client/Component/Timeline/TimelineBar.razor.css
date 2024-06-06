@@ -1,70 +1,101 @@
-﻿.timeline-skill {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+.timeline-skill {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+.timeline-skill[data-orientation=vertical] {
+  flex-direction: column;
+}
+.timeline-skill[data-orientation=horizontal] {
+  flex-direction: row;
 }
 
 .timeline-container {
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    overflow: hidden;
-    scrollbar-width: thin;
-    width: 100%;
-    border: 1px solid black;
-    border-radius: 5px;
+  display: flex;
+  align-self: stretch;
+  overflow: hidden;
+  scrollbar-width: thin;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.timeline-container[data-orientation=vertical] {
+  flex-direction: column;
+}
+.timeline-container[data-orientation=horizontal] {
+  flex-direction: row;
 }
 
 .timeline-header {
-    background-color: white;
-    position: sticky;
-    top: 3.5em;
+  background-color: white;
+  position: sticky;
+}
+.timeline-header[data-orientation=vertical] {
+  top: 3.5em;
+}
+.timeline-header[data-orientation=horizontal] {
+  left: 0.5em;
 }
 
 .timeline-bar {
-    border: 1px solid black;
-    height: 8000px;
-    width: 20px;
-    margin: 10px;
-    background-image: repeating-linear-gradient(to bottom, transparent 0 1.9em, #00000007 1.9em 2em);
+  border: 1px solid black;
+  height: 8000px;
+  width: 20px;
+  margin: 10px;
+  background-image: repeating-linear-gradient(to bottom, transparent 0 1.9em, rgba(0, 0, 0, 0.0274509804) 1.9em 2em);
 }
 
 .timeline-all-portions {
-    display: flex;
-    flex-direction: column;
-    height: fit-content;
+  display: flex;
+}
+.timeline-all-portions[data-orientation=vertical] {
+  flex-direction: column;
+  height: fit-content;
+}
+.timeline-all-portions[data-orientation=horizontal] {
+  flex-direction: row;
+  width: fit-content;
 }
 
 .timeline-portion {
-    cursor: pointer;
-    height: 25px;
+  cursor: pointer;
+}
+.timeline-portion[data-orientation=vertical] {
+  height: 25px;
+}
+.timeline-portion[data-orientation=horizontal] {
+  width: 25px;
+  height: 100%;
 }
 
-.timeline-portion + .timeline-portion {
-    border-top: 1px solid black;
+.timeline-portion + .timeline-portion[data-orientation=vertical] {
+  border-top: 1px solid black;
+}
+.timeline-portion + .timeline-portion[data-orientation=horizontal] {
+  border-left: 1px solid black;
 }
 
 .timeline-portion.potential {
-    background-color: lime;
+  background-color: lime;
 }
 
 .timeline-portion.potential-active {
-    background-color: yellow;
+  background-color: yellow;
 }
 
 .timeline-portion.potential-cooldown {
-    background-color: gray;
+  background-color: gray;
 }
 
 .timeline-portion.skill {
-    background-color: dodgerblue;
+  background-color: dodgerblue;
 }
 
 .timeline-portion.skill-active {
-    background-color: deepskyblue;
+  background-color: deepskyblue;
 }
 
 .timeline-portion.skill-cooldown {
-    background-color: gray;
+  background-color: gray;
 }
+
+/*# sourceMappingURL=TimelineBar.razor.css.map */

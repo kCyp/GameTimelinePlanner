@@ -42,6 +42,6 @@ public class Skill : IDisplayable
     public bool IsUsableAtLevel(int level) 
     {
         return RequiredLevel <= level &&
-        LevelMax == null || level < LevelMax;
+            LevelMax == null || level < LevelMax;
     }
 }

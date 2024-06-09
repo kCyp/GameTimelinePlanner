@@ -15,7 +15,8 @@
 
         <TimelineSettings Jobs="_jobs" Duties="_duties" 
             @bind-Players="_timeline.Roster.Players"
-            @bind-Duty="_timeline.Duty" />
+            @bind-Duty="_timeline.Duty"
+            @bind-Duty:after="OnDutyChanged" />
         <div class="timeline" data-orientation=@Orientation>
             <div class="boss-timeline">
             </div>
@@ -45,7 +46,9 @@
     private void ChangeOrientation() {
         Orientation = Orientation == "vertical" ? "horizontal" : "vertical";
     }
-
+    private void OnDutyChanged() {
+        _timeline.Roster.SetPlayersLevel(_timeline.Duty!.Level);
+    }
     protected override async Task OnInitializedAsync()
     {
         _jobs = await Http.GetFromJsonAsync<IList<Job>>("game/jobs");

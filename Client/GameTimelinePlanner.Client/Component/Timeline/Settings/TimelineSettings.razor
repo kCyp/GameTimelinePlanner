@@ -1,15 +1,15 @@
 @using GameTimelinePlanner.Shared.Domain.Entity
 
-@if (Jobs != null && Players != null)
+@if (Jobs != null && Duties != null && Players != null)
 {
     <div class="settings-container">
         <div class="duty-selector">
-            <select @onchange="OnDutyUpdate">
+            <InputSelect @bind-Value="DutyStr" @bind-Value:after="async () => await DutyChanged.InvokeAsync(Duty)" >
                 @foreach (var duty in Duties)
                 {
                     <option Value=@duty.Id>@duty.Abbr</option>
                 }
-            </select>
+            </InputSelect>
             @if ( Duty != null )
             {
                 <DutyCard Duty="Duty"/>
@@ -39,9 +39,21 @@
     [Parameter]
     public EventCallback<Duty> DutyChanged { get; set; }
 
-    public void OnDutyUpdate(ChangeEventArgs e) {
-        string _selectedId = e.Value.ToString();
-        Duty = Duties.FirstOrDefault(duty => duty.Id == _selectedId);
+    private string? DutyStr 
+    { 
+        get 
+        { 
+            return Duty?.Id; 
+        }
+        
+        set 
+        { 
+            DutySet(value);
+        } 
+    }
+
+    public void DutySet(string? id) {
+        Duty = Duties!.FirstOrDefault(duty => duty.Id == id);
     }
 
 }

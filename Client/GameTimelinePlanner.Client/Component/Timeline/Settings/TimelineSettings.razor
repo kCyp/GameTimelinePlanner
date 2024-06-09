@@ -3,7 +3,18 @@
 @if (Jobs != null && Players != null)
 {
     <div class="settings-container">
-        <div class="duty-selector"></div>
+        <div class="duty-selector">
+            <select @onchange="OnDutyUpdate">
+                @foreach (var duty in Duties)
+                {
+                    <option Value=@duty.Id>@duty.Abbr</option>
+                }
+            </select>
+            @if ( Duty != null )
+            {
+                <DutyCard Duty="Duty"/>
+            }
+        </div>
         <RosterSettings Jobs="Jobs" @bind-Players="Players" @bind-Players:after="async () => await PlayersChanged.InvokeAsync(Players)" />
     </div>
 }
@@ -18,4 +29,19 @@
 
     [Parameter]
     public EventCallback<IList<Player>?> PlayersChanged { get; set; }
+
+    [Parameter]
+    public IList<Duty>? Duties { get; set; }
+    
+    [Parameter]
+    public Duty? Duty { get; set; }
+
+    [Parameter]
+    public EventCallback<Duty> DutyChanged { get; set; }
+
+    public void OnDutyUpdate(ChangeEventArgs e) {
+        string _selectedId = e.Value.ToString();
+        Duty = Duties.FirstOrDefault(duty => duty.Id == _selectedId);
+    }
+
 }

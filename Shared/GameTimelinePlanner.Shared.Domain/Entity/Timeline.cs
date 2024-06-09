@@ -5,12 +5,18 @@ public record ActiveSkill(Skill skill, Player fromPlayer);
 public class Timeline
 {
     public Roster Roster { get; set; }
-    public Duty Duty { get; set; }
+    public Duty? Duty { get; set; }
 
     public Timeline(Duty duty, Roster roster)
     {
         Duty = duty;
         Roster = roster;
+    }
+    
+    public Timeline()
+    {
+        Duty = null;
+        Roster = new Roster(8);
     }
 
     public IList<ActiveSkill> GetActiveSkills(decimal time) 

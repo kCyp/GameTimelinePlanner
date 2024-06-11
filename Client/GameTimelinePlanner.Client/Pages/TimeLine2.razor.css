@@ -1,8 +1,9 @@
-/*.timeline {
-    display: flex;
-    gap: 10px;
-    flex-direction: column;
-}*/
+.timeline-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .timeline {
   display: flex;
   gap: 10px;

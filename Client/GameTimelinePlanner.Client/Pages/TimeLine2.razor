@@ -13,14 +13,17 @@
     {
         <button @onclick=ChangeOrientation style="width: 50px;"> ??? </button>
 
-        <TimelineSettings Jobs="_jobs" @bind-Players="_players" />
+        <TimelineSettings Jobs="_jobs" Duties="_duties" 
+            @bind-Players="_timeline.Roster.Players"
+            @bind-Duty="_timeline.Duty"
+            @bind-Duty:after="OnDutyChanged" />
         <div class="timeline" data-orientation=@Orientation>
             <div class="boss-timeline">
             </div>
 
-            @for (int i = 0; i < _players.Count; i++)
+            @for (int i = 0; i < _timeline.Roster.Size; i++)
             {
-                var player = _players[i];
+                var player = _timeline.Roster.Players[i];
                 if (player.Job != null)
                 {
                     <TimelinePlayer @bind-Player="player" />
@@ -34,15 +37,21 @@
 
 @code {
     private IList<Job>? _jobs { get; set; }
-    private IList<Player> _players = new List<Player>() { new(), new(), new(), new(), new(), new(), new(), new() };
+    private IList<Duty>? _duties { get; set; }
 
-    private string Orientation {get; set; } = "vertical";
+    private Timeline _timeline = new Timeline();
+    
+    private string Orientation { get; set; } = "vertical";
 
     private void ChangeOrientation() {
         Orientation = Orientation == "vertical" ? "horizontal" : "vertical";
     }
+    private void OnDutyChanged() {
+        _timeline.Roster.SetPlayersLevel(_timeline.Duty!.Level);
+    }
     protected override async Task OnInitializedAsync()
     {
         _jobs = await Http.GetFromJsonAsync<IList<Job>>("game/jobs");
+        _duties = await Http.GetFromJsonAsync<IList<Duty>>("game/duties");
     }
 }

@@ -99,3 +99,27 @@ a, .btn-link {
     .loading-progress-text:after {
         content: var(--blazor-load-percentage-text, "Loading");
     }
+
+.icon {
+    display: block;
+    margin:auto;
+}
+
+    .icon.small {
+        width: 1em;
+        height: 1em;
+    }
+    .icon.medium {
+        width: 2em;
+        height: 2em;
+    }
+    .icon.large {
+        width: 3em;
+        height: 3em;
+    }
+    .icon.auto {
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        max-height: 100%;
+    }

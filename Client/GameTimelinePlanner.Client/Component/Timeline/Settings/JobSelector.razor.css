@@ -4,14 +4,18 @@
 }
 
 .job-placeholder {
-    margin: auto;
-    cursor: pointer;
-    width: 3em;
-    height: 3em;
+    width: 100%;
+    height: 100%;
     border: 1px solid black;
     border-radius: 5px;
     align-content: center;
     text-align: center;
+}
+.job-displayer {
+    margin: auto;
+    cursor: pointer;
+    width: 3em;
+    height: 3em;
 }
 
 .job-container {

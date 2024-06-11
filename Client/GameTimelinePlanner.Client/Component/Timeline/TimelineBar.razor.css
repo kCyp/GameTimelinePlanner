@@ -58,6 +58,8 @@
 
 .timeline-portion {
   cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 .timeline-portion[data-orientation=vertical] {
   height: 25px;

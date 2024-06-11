@@ -1,11 +1,15 @@
-﻿@using GameTimelinePlanner.Shared.Domain.Entity
+﻿@using GameTimelinePlanner.Client.Model
+@using GameTimelinePlanner.Shared.Domain.Entity
 
 @if (Skill != null)
 {
-    <img class="skill-icon" src="Resources/@Skill.DisplayDescription.IconSource">
+    <img class="icon @(IconSize.ToCssClass())" src="Resources/@Skill.DisplayDescription.IconSource">
 }
 
 @code {
     [Parameter]
     public Skill? Skill { get; set; }
+
+    [Parameter]
+    public IconSize? IconSize { get; set; }
 }

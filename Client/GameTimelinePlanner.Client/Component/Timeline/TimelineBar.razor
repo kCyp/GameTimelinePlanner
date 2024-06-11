@@ -1,14 +1,14 @@
-﻿@using GameTimelinePlanner.Shared.Domain.Entity;
+﻿@using GameTimelinePlanner.Client.Model
+@using GameTimelinePlanner.Shared.Domain.Entity;
 @using System.Text
 
 @if (Skill != null)
 {
     <div class="timeline-skill" data-orientation=@Orientation>
         <div class=timeline-header data-orientation=@Orientation>
-            <SkillIcon Skill="Skill" />
+            <SkillIcon Skill="Skill" IconSize="IconSize.Large" />
         </div>
         <div class="timeline-container" data-orientation=@Orientation>
-            @* <div class="timeline-bar" /> *@
             <div class="timeline-all-portions" data-orientation=@Orientation>
 
                 @for (int i = 0; i < 100; i++)
@@ -19,6 +19,10 @@
                         @onmouseenter="() => SetPotentialUsage(index)"
                         @onmouseleave="() => DeletePotentialUsage()"
                         @onclick="() => ToggleUsage(index)">
+                        @if (GetClassOfPortion(index) == "skill")
+                        {
+                            <SkillIcon Skill="Skill" IconSize="IconSize.Auto" />
+                        }
                     </div>
                 }
             </div>
@@ -76,21 +80,6 @@
         }
 
         decimal timeOfPortion = _DurationOfPortion * index;
-        if (_PotentialUsage != null)
-        {
-            if (_PotentialUsage.StartTime == timeOfPortion)
-            {
-                return "potential";
-            }
-            if (_PotentialUsage.IsActiveAt(timeOfPortion))
-            {
-                return "potential-active";
-            }
-            if (_PotentialUsage.IsInCooldownAt(timeOfPortion))
-            {
-                return "potential-cooldown";
-            }
-        }
 
         if (Player.HasSkillAtExactStartTime(Skill, timeOfPortion))
         {
@@ -105,6 +94,22 @@
         if (Player.HasSkillInCooldown(Skill, timeOfPortion))
         {
             return "skill-cooldown";
+        }
+
+        if (_PotentialUsage != null)
+        {
+            if (_PotentialUsage.StartTime == timeOfPortion)
+            {
+                return "potential";
+            }
+            if (_PotentialUsage.IsActiveAt(timeOfPortion))
+            {
+                return "potential-active";
+            }
+            if (_PotentialUsage.IsInCooldownAt(timeOfPortion))
+            {
+                return "potential-cooldown";
+            }
         }
 
         return string.Empty;

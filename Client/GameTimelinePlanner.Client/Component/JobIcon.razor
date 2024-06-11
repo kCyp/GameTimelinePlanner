@@ -1,11 +1,15 @@
-﻿@using GameTimelinePlanner.Shared.Domain.Entity
+﻿@using GameTimelinePlanner.Client.Model
+@using GameTimelinePlanner.Shared.Domain.Entity
 
 @if (Job != null)
 {
-    <img class="job-icon" src="Resources/@Job.DisplayDescription.IconSource" />
+    <img class="icon @(IconSize.ToCssClass())" src="Resources/@Job.DisplayDescription.IconSource" />
 }
 
 @code {
     [Parameter]
     public Job? Job { get; set; }
+
+    [Parameter]
+    public IconSize? IconSize { get; set; }
 }

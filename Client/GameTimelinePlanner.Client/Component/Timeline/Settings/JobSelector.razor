@@ -4,24 +4,30 @@
 @if (Jobs != null)
 {
     <div class="selector-container">
-        <div class="job-placeholder" @onclick="ToggleOpen">
+        <div class="job-displayer" @onclick="ToggleOpen">
             @if (PlayerJob != null)
             {
-                <JobIcon Job="PlayerJob" />
+                <JobIcon Job="PlayerJob" IconSize="Model.IconSize.Auto" />
             }
             else
-            { 
-                @("?")
+            {
+                <div class="job-placeholder">
+                    @("?")
+                </div>
             }
         </div>
         <div class="job-container @($" {(_IsOpen ? "visible" : "hidden" )}")">
-            <div class="job-placeholder" @onclick="() => { HandleJobClick(null); }">
-                @("?")
+            <div class="job-displayer" @onclick="() => { HandleJobClick(null); }">
+                <div class="job-placeholder">
+                    @("?")
+                </div>
             </div>
             @foreach (var job in Jobs.OrderBy(j => j.Role?.Type))
             {
-                <div class="job-selector" @onclick="() => { HandleJobClick(job); }">
-                    <JobIcon Job="job" />
+                <div class="job-displayer">
+                    <div class="job-selector" @onclick="() => { HandleJobClick(job); }">
+                        <JobIcon Job="job" IconSize="Model.IconSize.Auto" />
+                    </div>
                 </div>
             }
         </div>
@@ -51,7 +57,7 @@
         await base.OnInitializedAsync();
     }
 
-    private void HandleJobClick(Job job)
+    private void HandleJobClick(Job? job)
     {
         _IsOpen = false;
         PlayerJob = job;

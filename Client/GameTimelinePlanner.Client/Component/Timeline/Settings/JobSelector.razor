@@ -3,7 +3,7 @@
 
 @if (Jobs != null)
 {
-    <div class="selector-container">
+    <div class="selector-container" tabindex="0" @onfocusout="CloseSelector">
         <div class="job-displayer" @onclick="ToggleOpen">
             @if (PlayerJob != null)
             {
@@ -74,5 +74,10 @@
     private void ToggleOpen(MouseEventArgs e)
     {
         _IsOpen = !_IsOpen;
+    }
+
+    private void CloseSelector(FocusEventArgs e)
+    {
+        _IsOpen = false;
     }
 }

@@ -24,5 +24,5 @@ public class Roster
     
     public int Size { get; init; } = 8;
     public IList<Player> Players { get; set; }
-    public RosterType RosterType {get; set; }
+    public RosterType RosterType { get; set; }
 }

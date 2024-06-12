@@ -1,0 +1,35 @@
+{
+    "Name": "Bard",
+    "RoleType": 4,
+    "JobSkills": [
+        {
+            "Name": "Troubadour",
+            "RequiredLevel": 62,
+            "LevelMax": 88,
+            "Duration": 15,
+            "Cooldown": 120,
+            "Description": "10% damage reduction",
+            "SimilarSkills": ["Shield Samba", "Tactician"],
+            "DisplayDescription": {
+                "IconSource": "FFXIV/Skills/BRD/troubadour.png",
+                "ColorHex": "#FFFFFF"
+            }
+        },
+        {
+            "Name": "Troubadour",
+            "RequiredLevel":88,
+            "Duration": 15,
+            "Cooldown": 90,
+            "Description": "10% damage reduction",
+            "SimilarSkills": ["Shield Samba", "Tactician"],
+            "DisplayDescription": {
+                "IconSource": "FFXIV/Skills/BRD/troubadour.png",
+                "ColorHex": "#FFFFFF"
+            }
+        }
+    ],
+    "DisplayDescription": {
+        "IconSource": "FFXIV/Jobs/Dps/Job/Bard.png",
+        "ColorHex": "#80a0f0"
+    }
+}

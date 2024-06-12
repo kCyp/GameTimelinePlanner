@@ -1,0 +1,70 @@
+{ 
+    "Name": "Warrior",
+    "RoleType": 0,
+    "JobSkills": [
+        {
+            "Name": "Vengence",
+            "RequiredLevel": 38,
+            "Duration": 30,
+            "Cooldown": 120,
+            "Description": "Reduces damage taken by 30%",
+            "DisplayDescription": {
+                "IconSource": "FFXIV/Skills/WAR/vengeance",
+                "ColorHex": "#FFFFFF"
+            }
+        },
+        {
+            "Name": "Holmgang",
+            "RequiredLevel": 42,
+            "Duration": 10,
+            "Cooldown": 240,
+            "Description": "Prevents most attacks from reducing your HP to less than 1",
+            "DisplayDescription": {
+                "IconSource": "FFXIV/Skills/WAR/holmgang.png",
+                "ColorHex": "#FFFFFF"
+            }
+        },
+        {
+            "Name": "Raw Intuition",
+            "RequiredLevel": 56,
+            "Duration": 6,
+            "Cooldown": 25,
+            "LevelMax": 82,
+            "Description": "Reduces damage taken by 10%. Additional Effect: Restores HP with each weaponskill successfully delivered",
+            "SharedCooldowns": ["Nascent Flash"],
+            "DisplayDescription": {
+                "IconSource": "FFXIV/Skills/WAR/raw_intuition.png",
+                "ColorHex": "#FFFFFF"
+            }
+        },
+        {
+            "Name": "Bloodwhetting",
+            "RequiredLevel": 82,
+            "Duration": 8,
+            "Cooldown": 25,
+            "LevelMax": 82,
+            "Description": "Reduces damage taken by 10%.\nAdditional Effect: Restores HP with each weaponskill successfully delivered\nAdditional Effect: Grants Stem the Flow",
+            "SharedCooldowns": ["Nascent Flash"],
+            "DisplayDescription": {
+                "IconSource": "FFXIV/Skills/WAR/raw_intuition.png",
+                "ColorHex": "#FFFFFF"
+            }
+        },
+        {
+            "Name": "Shake It Off",
+            "RequiredLevel": 68,
+            "Duration": 30,
+            "Cooldown": 90,
+            "Description": "Creates a barrier around self and all nearby party members that absorbs damage totaling 15% of maximum HP.\nDispels Thrill of Battle, Vengeance, and Bloodwhetting, increasing damage absorbed by 2% for each effect removed.",
+            "DisplayDescription": {
+                "IconSource": "FFXIV/Skills/WAR/raw_intuition.png",
+                "ColorHex": "#FFFFFF"
+            }
+        }
+],
+    "DisplayDescription": {
+        "IconSource": "FFXIV/Jobs/Tank/Job/Warrior.png",
+        "ColorHex": "#cf2621"
+    }
+}
+	

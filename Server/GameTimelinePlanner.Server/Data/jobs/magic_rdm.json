@@ -1,0 +1,36 @@
+{
+    "Name": "Red Mage",
+    "RoleType": 3,
+    "JobSkills": [
+        {
+            "Name": "Magick Barrier",
+            "RequiredLevel": 86,
+            "Cooldown": 120,
+            "Description": "Reduces magic damage taken by self and nearby party members by 10%, while increasing HP recovered by healing actions by 5%.",
+            "Effects": [
+                {
+                    "Name": "Magick Barrier",
+                    "Duration": 10,
+                    "EffectType": 0,
+                    "AffectdDmg": 2,
+                    "EffectStr": 10,
+                    "Description:": "10% magic damage reduction"
+                },
+                {
+                    "Name": "Magick Barrier (Healing Amp)",
+                    "Duration": 10,
+                    "EffectType": 3,
+                    "Description:": "5% healing amplification"
+                }
+            ],
+            "DisplayDescription": {
+                "IconSource": "FFXIV/Skills/RDM/magick_barrier.png",
+                "ColorHex": "#FFFFFF"
+            }
+        }
+    ],
+    "DisplayDescription": {
+        "IconSource": "FFXIV/Jobs/Dps/Job/RedMage.png",
+        "ColorHex": "#d126cc"
+    }
+}

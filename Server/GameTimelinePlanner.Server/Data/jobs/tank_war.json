@@ -13,7 +13,6 @@
                     "Duration": 30,
                     "EffectType": 0,
                     "EffectStr": 30,
-                    "AgainstDmgType": 0,
                     "Description:": "Reduces damage taken by 30%"
                 }
             ],
@@ -33,7 +32,6 @@
                     "Duration": 10,
                     "EffectType": 3,
                     "EffectStr": 3,
-                    "AgainstDmgType": 0,
                     "Description:": "Prevents most attacks from reducing your HP to less than 1"
                 }
             ],
@@ -54,16 +52,13 @@
                     "Name": "Raw Intuition",
                     "Duration": 6,
                     "EffectType": 0,
-                    "EffectStr": 3,
-                    "AgainstDmgType": 0,
+                    "EffectStr": 10,
                     "Description:": "Reduces damage taken by 10%."
                 },
                 {
                     "Name": "Raw Intuition (Healing)",
                     "Duration": 6,
                     "EffectType": 3,
-                    "EffectStr": 3,
-                    "AgainstDmgType": 0,
                     "Description:": "Restores HP with each weaponskill successfully delivered"
                 }
             ],
@@ -84,15 +79,12 @@
                     "Duration": 8,
                     "EffectType": 0,
                     "EffectStr": 10,
-                    "AgainstDmgType": 0,
                     "Description:": "Reduces damage taken by 10%."
                 },
                 {
                     "Name": "Bloodwhetting (Healing)",
                     "Duration": 8,
                     "EffectType": 3,
-                    "EffectStr": 3,
-                    "AgainstDmgType": 0,
                     "Description:": "Restores HP with each weaponskill successfully delivered"
                 },
                 {
@@ -100,7 +92,6 @@
                     "Duration": 4,
                     "EffectType": 0,
                     "EffectStr": 10,
-                    "AgainstDmgType": 0,
                     "Description:": "Reduces damage taken by 10%."
                 },
                 {
@@ -108,7 +99,6 @@
                     "Duration": 20,
                     "EffectType": 2,
                     "EffectStr": 400,
-                    "AgainstDmgType": 0,
                     "Description:": "Creates a barrier around self that absorbs damage equivalent to a heal of 400 potency"
                 }
             ],
@@ -127,8 +117,6 @@
                     "Name": "Shake It Off",
                     "Duration": 30,
                     "EffectType": 2,
-                    "EffectStr": 0,
-                    "AgainstDmgType": 0,
                     "Description:": "Creates a barrier around self and all nearby party members that absorbs damage totaling 15% of maximum HP."
                 }
             ],

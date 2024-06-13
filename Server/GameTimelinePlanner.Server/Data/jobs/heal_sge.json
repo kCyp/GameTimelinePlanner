@@ -13,7 +13,6 @@
 						"Duration": 10,
 						"EffectType": 0,
 						"EffectStr": 10,
-						"AgainstDmgType": 0,
 						"Description:": "10% damage reduction",
 						"SimilarEffects": []
 					}
@@ -34,7 +33,6 @@
 						"Duration": 20,
 						"EffectType": 0,
 						"EffectStr": 0,
-						"AgainstDmgType": 0,
 						"Description:": "10% damage reduction",
 						"SimilarEffects": []
 					}

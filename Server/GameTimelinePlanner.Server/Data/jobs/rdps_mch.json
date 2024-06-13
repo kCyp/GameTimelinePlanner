@@ -14,7 +14,6 @@
                     "Duration": 15,
                     "EffectType": 0,
                     "EffectStr": 10,
-                    "AgainstDmgType": 0,
                     "Description:": "10% damage reduction",
                     "SimilarEffects": ["Shield Samba", "Troubadour"]
 
@@ -36,7 +35,6 @@
                     "Duration": 15,
                     "EffectType": 0,
                     "EffectStr": 10,
-                    "AgainstDmgType": 0,
                     "Description:": "10% damage reduction",
                     "SimilarEffects": ["Shield Samba", "Troubadour"]
                 }
@@ -57,7 +55,6 @@
                     "Duration": 10,
                     "EffectType": 1,
                     "EffectStr": 10,
-                    "AgainstDmgType": 0,
                     "Description:": "Lowers target's damage dealt by 10%.",
                     "SimilarEffects": []
                 }

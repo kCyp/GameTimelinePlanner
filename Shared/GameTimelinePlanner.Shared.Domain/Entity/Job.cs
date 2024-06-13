@@ -33,8 +33,7 @@ public class Job : IDisplayable, IIdentifiable<string>
     }
     public IList<Skill> SkillsAtLevelCap()
     {
-        return Skills.Where(skill => skill.IsUsableAtLevel(999))
-            .ToList();
+        return SkillsAtLevel(null);
     }
 
     public void SetRole(Role role)

@@ -7,10 +7,3 @@ public enum SkillEffectType
     Barrier,
     Other
 }
-
-public enum DamageType
-{
-    Both,
-    Physical,
-    Magical
-}

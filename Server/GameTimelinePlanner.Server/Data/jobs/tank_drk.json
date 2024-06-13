@@ -13,7 +13,7 @@
                     "Duration": 15,
                     "EffectType": 0,
                     "EffectStr": 10,
-                    "AgainstDmgType": 2,
+                    "DmgAffected": 2,
                     "Description": "10% magical damage reduction"
                 }
             ],

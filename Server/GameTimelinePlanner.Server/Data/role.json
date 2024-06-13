@@ -62,7 +62,7 @@
 						"Name": "Feint (Physical)",
 						"Duration": 10,
 						"EffectType": 1,
-						"AgainstDmgType": 1,
+						"DmgAffected": 1,
 						"EffectStr": 10,
 						"Description:": "Lowers target's physical damage dealt by 10%."
 					},
@@ -70,7 +70,7 @@
 						"Name": "Feint (Magical)",
 						"Duration": 10,
 						"EffectType": 1,
-						"AgainstDmgType": 2,
+						"DmgAffected": 2,
 						"EffectStr": 5,
 						"Description:": "Lowers target's magical damage dealt by 5%."
 					}
@@ -96,7 +96,7 @@
 						"Name": "Addle (Physical)",
 						"Duration": 10,
 						"EffectType": 1,
-						"AgainstDmgType": 1,
+						"DmgAffected": 1,
 						"EffectStr": 5,
 						"Description:": "Lowers target's physical damage dealt by 5%."
 					},
@@ -104,7 +104,7 @@
 						"Name": "Addle (Magical)",
 						"Duration": 10,
 						"EffectType": 1,
-						"AgainstDmgType": 2,
+						"DmgAffected": 2,
 						"EffectStr": 10,
 						"Description:": "Lowers target's magical damage dealt by 10%."
 					}

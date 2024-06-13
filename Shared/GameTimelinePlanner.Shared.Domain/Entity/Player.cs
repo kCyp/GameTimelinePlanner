@@ -63,8 +63,7 @@ public class Player : IDisplayable, IIdentifiable<string>
         {
             return new List<Skill>();
         }
-        return Job.Skills.Where(skill => skill.IsUsableAtLevel(Level ?? 999))
-            .ToList();
+        return Job.SkillsAtLevel(Level);
     }
 
     public bool HasSkill(Skill skill) 

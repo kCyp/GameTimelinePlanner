@@ -7,7 +7,7 @@
             <JobPanel Job="@Job" />
         </div>
         <div class="skills-panel">
-            @foreach (Skill skill in Job.Skills)
+            @foreach (Skill skill in Job.SkillsAtLevelCap())
             {
                 <SkillPanel Skill="@skill" />
             }

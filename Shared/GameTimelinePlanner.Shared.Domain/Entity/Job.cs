@@ -26,6 +26,17 @@ public class Job : IDisplayable, IIdentifiable<string>
 
     public string Id => Name;
 
+    public IList<Skill> SkillsAtLevel(int? level)
+    {
+        return Skills.Where(skill => skill.IsUsableAtLevel(level ?? 999))
+            .ToList();
+    }
+    public IList<Skill> SkillsAtLevelCap()
+    {
+        return Skills.Where(skill => skill.IsUsableAtLevel(999))
+            .ToList();
+    }
+
     public void SetRole(Role role)
     {
         Role = role;

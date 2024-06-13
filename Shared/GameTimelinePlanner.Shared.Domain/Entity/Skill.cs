@@ -5,25 +5,25 @@ namespace GameTimelinePlanner.Shared.Domain.Entity;
 
 public class Skill : IDisplayable
 {
-    public Skill(string name, int requiredLevel, int? levelMax, decimal cooldown, 
-                IList<string>? sharedCooldowns, string description,
-                IList<SkillEffect> effects, DisplayDescription displayDescription)
+    public Skill(string name, int requiredLevel, int? levelMax, IList<SkillEffect> effects,
+                decimal cooldown, IList<string>? sharedCooldowns,
+                string description, DisplayDescription displayDescription)
     {
         Name = name;
         RequiredLevel = requiredLevel;
         LevelMax = levelMax;
+        Effects = effects;
         Cooldown = cooldown;
         SharedCooldowns = sharedCooldowns;
         Description = description;
-        Effects = effects;
         DisplayDescription = displayDescription;
     }
 
     public string Name { get; private init; }
     public int RequiredLevel { get; private init; }
     public int? LevelMax{ get; private init; }
-    public decimal Cooldown { get; private init; }
     public IList<SkillEffect> Effects { get; private init; }
+    public decimal Cooldown { get; private init; }
     public IList<string>? SharedCooldowns { get; private init; }
     public string Description { get; private init; }
     public DisplayDescription DisplayDescription { get; init; }
@@ -50,7 +50,7 @@ public class Skill : IDisplayable
 
     public SkillEffect? GetLongestEffect() {
         //return LongestNonBarrier when other effects exists
-        IEnumerable<SkillEffect>? nonBarrierEffects = Effects
+        IEnumerable<SkillEffect> nonBarrierEffects = Effects
             .Where(eff => eff.EffectType != SkillEffectType.Barrier);
 
         if (nonBarrierEffects.Count() > 0) 

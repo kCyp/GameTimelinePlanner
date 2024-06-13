@@ -64,8 +64,12 @@ public class PlayerTimeline
             SkillsUsage[skill].Any(usage => usage.StartTime == time);
     }
 
-    public bool IsEffectActive(SkillEffect skillEffect, decimal time)
+    public bool IsEffectActive(SkillEffect? skillEffect, decimal time)
     {
+        if (skillEffect == null)
+        {
+            return false;
+        }
         return
             EffectsInstances.ContainsKey(skillEffect) &&
             EffectsInstances[skillEffect].Any(effect => effect.IsActiveAt(time));

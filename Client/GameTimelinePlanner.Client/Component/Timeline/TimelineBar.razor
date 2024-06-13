@@ -61,13 +61,13 @@
         {
             decimal timeOfPortion = _DurationOfPortion * index;
 
-            if (Player.HasSkillAtExactStartTime(Skill, timeOfPortion))
+            if (Player.Timeline.HasSkillAtExactStartTime(Skill, timeOfPortion))
             {
-                Player.RemoveSkillUsage(Skill, timeOfPortion);
+                Player.Timeline.RemoveSkill(Skill, timeOfPortion);
             }
             else
             {
-                Player.AddSkillUsage(Skill, timeOfPortion);
+                Player.Timeline.AddSkill(Skill, timeOfPortion);
             }
         }
     }
@@ -81,17 +81,17 @@
 
         decimal timeOfPortion = _DurationOfPortion * index;
 
-        if (Player.HasSkillAtExactStartTime(Skill, timeOfPortion))
+        if (Player.Timeline.HasSkillAtExactStartTime(Skill, timeOfPortion))
         {
             return "skill";
         }
 
-        if (Player.HasSkillActive(Skill, timeOfPortion))
+        if (Player.Timeline.IsEffectActive(Skill.GetLongestEffect(), timeOfPortion))
         {
             return "skill-active";
         }
 
-        if (Player.HasSkillInCooldown(Skill, timeOfPortion))
+        if (Player.Timeline.IsSkillInCooldown(Skill, timeOfPortion))
         {
             return "skill-cooldown";
         }
@@ -102,7 +102,7 @@
             {
                 return "potential";
             }
-            if (_PotentialUsage.IsActiveAt(timeOfPortion))
+            if (_PotentialUsage.HasAnEffectActive(timeOfPortion))
             {
                 return "potential-active";
             }

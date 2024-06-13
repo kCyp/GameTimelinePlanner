@@ -6,10 +6,19 @@
             "Name": "Shield Samba",
             "RequiredLevel": 56,
             "LevelMax": 88,
-            "Duration": 15,
             "Cooldown": 120,
-            "SimilarSkills": ["Tactician", "Troubadour"],
             "Description": "10% damage reduction",
+            "Effects": [
+                {
+                    "Name": "Shield Samba",
+                    "Duration": 15,
+                    "EffectType": 0,
+                    "EffectStr": 10,
+                    "AgainstDmgType": 0,
+                    "Description:": "10% damage reduction",
+                    "SimilarEffects": ["Tactician", "Troubadour"]
+                }
+            ],
             "DisplayDescription": {
                 "IconSource": "FFXIV/Skills/DNC/shield_samba.png",
                 "ColorHex": "#FFFFFF"
@@ -18,10 +27,20 @@
         {
             "Name": "Shield Samba",
             "RequiredLevel":88,
-            "Duration": 15,
             "Cooldown": 90,
             "SimilarSkills": ["Tactician", "Troubadour"],
             "Description": "10% damage reduction",
+            "Effects": [
+                {
+                    "Name": "Shield Samba",
+                    "Duration": 15,
+                    "EffectType": 0,
+                    "EffectStr": 10,
+                    "AgainstDmgType": 0,
+                    "Description:": "10% damage reduction",
+                    "SimilarEffects": ["Tactician", "Troubadour"]
+                }
+            ],
             "DisplayDescription": {
                 "IconSource": "FFXIV/Skills/DNC/shield_samba.png",
                 "ColorHex": "#FFFFFF"

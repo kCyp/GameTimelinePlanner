@@ -1,6 +1,6 @@
 namespace GameTimelinePlanner.Shared.Domain.Entity;
 
-public record ActiveSkill(Skill skill, Player fromPlayer);
+public record ActiveEffect(SkillEffect skillEffect, Player fromPlayer);
 
 public class Timeline
 {
@@ -19,30 +19,22 @@ public class Timeline
         Roster = new Roster(8);
     }
 
-    public IList<ActiveSkill> GetActiveSkills(decimal time) 
+    public IList<ActiveEffect> GetActiveEffects(decimal time) 
     {
-        var _activeSkills = new List<ActiveSkill>();
+        var _activeEffects = new List<ActiveEffect>();
         foreach( Player player in Roster.Players )
         {
-            foreach( Skill skill in player.GetActiveSkills(time) )
+            foreach( SkillEffect effect in player.Timeline.GetActiveEffects(time) )
             {
-                _activeSkills.Add( new ActiveSkill(skill, player) );
+                _activeEffects.Add( new ActiveEffect(effect, player) );
             }
         }
-        return _activeSkills;
+        return _activeEffects;
     }
 
-    public void UseSkill(Player player, Skill skill, decimal time )
+    public static void UseSkill(Player player, Skill skill, decimal time )
     {
-        /*if (!player.HasSkillReady(skill, time)) 
-        {
-            throw new NotImplementedException();
-        }*/
-        if (!player.SkillsUsage.ContainsKey(skill))
-        {
-            player.SkillsUsage[skill] = new List<SkillUsage>();
-        }
-        player.SkillsUsage[skill].Add(new SkillUsage(skill, time));
+        player.Timeline.AddSkill(skill, time);
     }
 
 }

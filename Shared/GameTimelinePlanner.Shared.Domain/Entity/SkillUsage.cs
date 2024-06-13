@@ -12,19 +12,26 @@ public class SkillUsage
 
     public Skill Skill { get; private init; }
     public decimal StartTime { get; private init; }
-
-    public decimal EndTime => StartTime + Skill.Duration;
     public decimal ReUpTime => StartTime + Skill.Cooldown;
 
-    public bool IsActiveAt(decimal time)
+    public bool HasAnEffectActive(decimal time)
     {
-        return time > StartTime && 
-            time < EndTime;
+        decimal _longestEffectDuration = 0;
+        
+        SkillEffect? _LongestEffect = Skill.GetLongestEffect();
+        if ( _LongestEffect != null )
+        {
+            _longestEffectDuration = _LongestEffect.Duration;
+        }
+        return 
+            time >= StartTime && 
+            time < StartTime + _longestEffectDuration;
     }
 
     public bool IsInCooldownAt(decimal time)
     {
-        return time >= EndTime &&
-            time < ReUpTime;
+        return 
+            time > StartTime &&
+            !HasAnEffectActive(time) && time < ReUpTime;
     }
 }

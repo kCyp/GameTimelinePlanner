@@ -6,22 +6,41 @@
             "Name": "Troubadour",
             "RequiredLevel": 62,
             "LevelMax": 88,
-            "Duration": 15,
             "Cooldown": 120,
             "Description": "10% damage reduction",
-            "SimilarSkills": ["Shield Samba", "Tactician"],
+            "Effects": [
+                {
+                    "Name": "Troubadour",
+                    "Duration": 15,
+                    "EffectType": 0,
+                    "EffectStr": 10,
+                    "AgainstDmgType": 0,
+                    "Description:": "10% damage reduction",
+                    "SimilarSkills": ["Shield Samba", "Tactician"]
+                }
+            ],
             "DisplayDescription": {
                 "IconSource": "FFXIV/Skills/BRD/troubadour.png",
                 "ColorHex": "#FFFFFF"
             }
+
         },
         {
             "Name": "Troubadour",
             "RequiredLevel":88,
-            "Duration": 15,
             "Cooldown": 90,
             "Description": "10% damage reduction",
-            "SimilarSkills": ["Shield Samba", "Tactician"],
+            "Effects": [
+                {
+                    "Name": "Troubadour",
+                    "Duration": 15,
+                    "EffectType": 0,
+                    "EffectStr": 10,
+                    "AgainstDmgType": 0,
+                    "Description:": "10% damage reduction",
+                    "SimilarSkills": ["Shield Samba", "Tactician"]
+                }
+            ],
             "DisplayDescription": {
                 "IconSource": "FFXIV/Skills/BRD/troubadour.png",
                 "ColorHex": "#FFFFFF"

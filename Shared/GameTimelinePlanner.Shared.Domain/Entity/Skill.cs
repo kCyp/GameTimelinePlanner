@@ -5,27 +5,25 @@ namespace GameTimelinePlanner.Shared.Domain.Entity;
 
 public class Skill : IDisplayable
 {
-    public Skill(string name, int requiredLevel, int? levelMax, decimal duration, decimal cooldown, 
-                IList<string>? similarSkills, IList<string>? sharedCooldowns, 
-                string description, DisplayDescription displayDescription)
+    public Skill(string name, int requiredLevel, int? levelMax, decimal cooldown, 
+                IList<string>? sharedCooldowns, string description,
+                IList<SkillEffect> effects, DisplayDescription displayDescription)
     {
         Name = name;
         RequiredLevel = requiredLevel;
         LevelMax = levelMax;
-        Duration = duration;
         Cooldown = cooldown;
-        SimilarSkills = similarSkills;
         SharedCooldowns = sharedCooldowns;
         Description = description;
+        Effects = effects;
         DisplayDescription = displayDescription;
     }
 
     public string Name { get; private init; }
     public int RequiredLevel { get; private init; }
     public int? LevelMax{ get; private init; }
-    public decimal Duration { get; private init; }
     public decimal Cooldown { get; private init; }
-    public IList<string>? SimilarSkills { get; private init; }
+    public IList<SkillEffect> Effects { get; private init; }
     public IList<string>? SharedCooldowns { get; private init; }
     public string Description { get; private init; }
     public DisplayDescription DisplayDescription { get; init; }
@@ -48,5 +46,23 @@ public class Skill : IDisplayable
     {
         return RequiredLevel <= level &&
             LevelMax == null || level < LevelMax;
+    }
+
+    public SkillEffect? GetLongestEffect() {
+        //return LongestNonBarrier when other effects exists
+        IEnumerable<SkillEffect>? nonBarrierEffects = Effects
+            .Where(eff => eff.EffectType != SkillEffectType.Barrier);
+
+        if (nonBarrierEffects.Count() > 0) 
+        {
+            return nonBarrierEffects
+                .OrderByDescending(eff => eff.Duration)
+                .FirstOrDefault();
+        }
+        else {
+            return Effects
+                .OrderByDescending(eff => eff.Duration)
+                .FirstOrDefault();
+        }
     }
 }

@@ -1,0 +1,75 @@
+{
+    "Name": "Machinist",
+    "RoleType": 4,
+    "JobSkills": [
+        {
+            "Name": "Tactician",
+            "RequiredLevel": 56,
+            "LevelMax": 88,
+            "Cooldown": 120,
+            "Description": "10% damage reduction",
+            "Effects": [
+                {
+                    "Name": "Shield Samba",
+                    "Duration": 15,
+                    "EffectType": 0,
+                    "EffectStr": 10,
+                    "AgainstDmgType": 0,
+                    "Description:": "10% damage reduction",
+                    "SimilarEffects": ["Shield Samba", "Troubadour"]
+
+                }
+            ],
+            "DisplayDescription": {
+                "IconSource": "FFXIV/Skills/MCH/tactician.png",
+                "ColorHex": "#FFFFFF"
+            }
+        },
+        {
+            "Name": "Tactician",
+            "RequiredLevel":88,
+            "Cooldown": 90,
+            "Description": "10% damage reduction",
+            "Effects": [
+                {
+                    "Name": "Shield Samba",
+                    "Duration": 15,
+                    "EffectType": 0,
+                    "EffectStr": 10,
+                    "AgainstDmgType": 0,
+                    "Description:": "10% damage reduction",
+                    "SimilarEffects": ["Shield Samba", "Troubadour"]
+                }
+            ],
+            "DisplayDescription": {
+                "IconSource": "FFXIV/Skills/MCH/tactician.png",
+                "ColorHex": "#FFFFFF"
+            }
+        },
+        {
+            "Name": "Dismantle",
+            "RequiredLevel":62,
+            "Cooldown": 120,
+            "Description": "Lowers target's damage dealt by 10%.",
+            "Effects": [
+                {
+                    "Name": "Dismantle",
+                    "Duration": 10,
+                    "EffectType": 1,
+                    "EffectStr": 10,
+                    "AgainstDmgType": 0,
+                    "Description:": "Lowers target's damage dealt by 10%.",
+                    "SimilarEffects": []
+                }
+            ],
+            "DisplayDescription": {
+                "IconSource": "FFXIV/Skills/MCH/dismantle.png",
+                "ColorHex": "#FFFFFF"
+            }
+        }
+    ],
+    "DisplayDescription": {
+        "IconSource": "FFXIV/Jobs/Dps/Job/Machinist.png",
+        "ColorHex": "#80a0f0"
+    }
+}

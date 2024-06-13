@@ -24,6 +24,6 @@ public class Duty : IDisplayable, IIdentifiable<string>
     public int ItemLevel { get; set; }
     public string ReleasePatch { get; set; }
     public DisplayDescription DisplayDescription { get; init; }
-
+    
     public string Id => Name;
 }

@@ -5,9 +5,19 @@
 			{
 				"Name": "Kerachole",
 				"RequiredLevel": 50,
-				"Duration": 10,
 				"Cooldown": 30,
 				"Description": "10% damage reduction",
+				"Effects": [
+					{
+						"Name": "Kerachole",
+						"Duration": 10,
+						"EffectType": 0,
+						"EffectStr": 10,
+						"AgainstDmgType": 0,
+						"Description:": "10% damage reduction",
+						"SimilarEffects": []
+					}
+				],
 				"DisplayDescription": {
 					"IconSource": "FFXIV/Skills/SGE/kerachole.png",
 					"ColorHex": "#FFFFFF"
@@ -16,9 +26,19 @@
 			{
 				"Name": "Holos",
 				"RequiredLevel": 76,
-				"Duration": 20,
 				"Cooldown": 120,
 				"Description": "",
+				"Effects": [
+					{
+						"Name": "Holos",
+						"Duration": 20,
+						"EffectType": 0,
+						"EffectStr": 0,
+						"AgainstDmgType": 0,
+						"Description:": "10% damage reduction",
+						"SimilarEffects": []
+					}
+				],
 				"DisplayDescription": {
 					"IconSource": "FFXIV/Skills/SGE/holos.png",
 					"ColorHex": "#FFFFFF"

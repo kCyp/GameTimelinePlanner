@@ -1,0 +1,9 @@
+{
+    "Name": "Ninja",
+    "RoleType": 2,
+    "JobSkills": [],
+    "DisplayDescription": {
+        "IconSource": "FFXIV/Jobs/Dps/Job/Ninja.png",
+        "ColorHex": "#d126cc"
+    }
+}

@@ -5,9 +5,18 @@
         {
             "Name": "Dark Missionary",
             "RequiredLevel": 80,
-            "Duration": 15,
             "Cooldown": 90,
-            "Description": "15% magical damage reduction",
+            "Description": "Reduces magic damage taken by self and nearby party members by 10%.",
+            "Effects": [
+                {
+                    "Name": "Dark Missionary",
+                    "Duration": 15,
+                    "EffectType": 0,
+                    "EffectStr": 10,
+                    "AgainstDmgType": 2,
+                    "Description": "10% magical damage reduction"
+                }
+            ],
             "DisplayDescription": {
                 "IconSource": "FFXIV/Skills/DRK/dark_missionary.png",
                 "ColorHex": "#FFFFFF"

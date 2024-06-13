@@ -1,0 +1,9 @@
+{
+    "Name": "Samurai",
+    "RoleType": 2,
+    "JobSkills": [],
+    "DisplayDescription": {
+        "IconSource": "FFXIV/Jobs/Dps/Job/Samurai.png",
+        "ColorHex": "#d126cc"
+    }
+}

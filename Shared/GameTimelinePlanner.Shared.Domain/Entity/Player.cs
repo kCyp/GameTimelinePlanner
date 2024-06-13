@@ -22,13 +22,14 @@ public class Player : IDisplayable, IIdentifiable<string>
         Job = job;
         Name = string.Empty;
         DisplayDescription = new DisplayDescription();
-        Timeline = new();
+        Timeline = new PlayerTimeline();
     }
 
     public Player()
     {
         Name = string.Empty;
-        Timeline = new();
+        DisplayDescription = new DisplayDescription();
+        Timeline = new PlayerTimeline();
     }
 
     // TODO: need a better unique identifier

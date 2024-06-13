@@ -86,7 +86,8 @@
             return "skill";
         }
 
-        if (Player.Timeline.IsEffectActive(Skill.GetLongestEffect(), timeOfPortion))
+        if (Skill.GetLongestEffect != null && 
+            Player.Timeline.IsEffectActive(Skill.GetLongestEffect(), timeOfPortion))
         {
             return "skill-active";
         }

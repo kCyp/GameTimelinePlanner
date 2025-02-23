@@ -13,6 +13,7 @@
 }
 .timeline[data-orientation=horizontal] {
   flex-direction: column;
+  overflow-x: auto;
 }
 
 /*# sourceMappingURL=TimeLine2.razor.css.map */

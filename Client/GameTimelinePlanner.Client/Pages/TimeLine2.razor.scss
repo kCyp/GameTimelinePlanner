@@ -12,5 +12,6 @@
     }
     &[data-orientation="horizontal"] {
         flex-direction: column;
+        overflow-x:auto;
     }
 }

@@ -5,13 +5,17 @@ namespace GameTimelinePlanner.Shared.Domain.Entity;
 
 public class Skill : IDisplayable
 {
-    public Skill(string name, decimal duration, decimal cooldown, string description, DisplayDescription displayDescription, int requiredLevel)
+    public Skill(string name, int requiredLevel, int? levelMax, decimal duration, decimal cooldown, 
+                IList<string>? similarSkills, IList<string>? sharedCooldowns, 
+                string description, DisplayDescription displayDescription)
     {
         Name = name;
         RequiredLevel = requiredLevel;
-        LevelMax = null;
+        LevelMax = levelMax;
         Duration = duration;
         Cooldown = cooldown;
+        SimilarSkills = similarSkills;
+        SharedCooldowns = sharedCooldowns;
         Description = description;
         DisplayDescription = displayDescription;
     }
@@ -21,13 +25,14 @@ public class Skill : IDisplayable
     public int? LevelMax{ get; private init; }
     public decimal Duration { get; private init; }
     public decimal Cooldown { get; private init; }
+    public IList<string>? SimilarSkills { get; private init; }
+    public IList<string>? SharedCooldowns { get; private init; }
     public string Description { get; private init; }
-    
     public DisplayDescription DisplayDescription { get; init; }
 
     public override int GetHashCode()
     {
-        return Name.GetHashCode();
+        return Name.GetHashCode() + RequiredLevel.GetHashCode();
     }
 
     public override bool Equals(object? obj)
@@ -36,7 +41,7 @@ public class Skill : IDisplayable
         {
             return false;
         }
-        return Name.Equals(skill.Name);
+        return (Name + RequiredLevel.ToString()).Equals(skill.Name + RequiredLevel.ToString());
     }
 
     public bool IsUsableAtLevel(int level) 

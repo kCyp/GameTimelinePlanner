@@ -1,0 +1,32 @@
+{
+		"Name": "Sage",
+		"RoleType": 1,
+		"JobSkills": [
+			{
+				"Name": "Kerachole",
+				"RequiredLevel": 50,
+				"Duration": 10,
+				"Cooldown": 30,
+				"Description": "10% damage reduction",
+				"DisplayDescription": {
+					"IconSource": "FFXIV/Skills/SGE/kerachole.png",
+					"ColorHex": "#FFFFFF"
+				}
+			},
+			{
+				"Name": "Holos",
+				"RequiredLevel": 76,
+				"Duration": 20,
+				"Cooldown": 120,
+				"Description": "",
+				"DisplayDescription": {
+					"IconSource": "FFXIV/Skills/SGE/holos.png",
+					"ColorHex": "#FFFFFF"
+				}
+			}
+		],
+		"DisplayDescription": {
+			"IconSource": "FFXIV/Jobs/Healer/Job/Sage.png",
+			"ColorHex": "#80a0f0"
+		}
+	}

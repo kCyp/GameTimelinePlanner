@@ -1,0 +1,35 @@
+{
+    "Name": "Dancer",
+    "RoleType": 4,
+    "JobSkills": [
+        {
+            "Name": "Shield Samba",
+            "RequiredLevel": 56,
+            "LevelMax": 88,
+            "Duration": 15,
+            "Cooldown": 120,
+            "SimilarSkills": ["Tactician", "Troubadour"],
+            "Description": "10% damage reduction",
+            "DisplayDescription": {
+                "IconSource": "FFXIV/Skills/DNC/shield_samba.png",
+                "ColorHex": "#FFFFFF"
+            }
+        },
+        {
+            "Name": "Shield Samba",
+            "RequiredLevel":88,
+            "Duration": 15,
+            "Cooldown": 90,
+            "SimilarSkills": ["Tactician", "Troubadour"],
+            "Description": "10% damage reduction",
+            "DisplayDescription": {
+                "IconSource": "FFXIV/Skills/DNC/shield_samba.png",
+                "ColorHex": "#FFFFFF"
+            }
+        }
+    ],
+    "DisplayDescription": {
+        "IconSource": "FFXIV/Jobs/Dps/Job/Dancer.png",
+        "ColorHex": "#80a0f0"
+    }
+}

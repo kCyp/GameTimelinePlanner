@@ -1,0 +1,46 @@
+{
+    "Name": "Machinist",
+    "RoleType": 4,
+    "JobSkills": [
+        {
+            "Name": "Tactician",
+            "RequiredLevel": 56,
+            "LevelMax": 88,
+            "Duration": 15,
+            "Cooldown": 120,
+            "Description": "10% damage reduction",
+            "SimilarSkills": ["Shield Samba", "Troubadour"],
+            "DisplayDescription": {
+                "IconSource": "FFXIV/Skills/MCH/tactician.png",
+                "ColorHex": "#FFFFFF"
+            }
+        },
+        {
+            "Name": "Tactician",
+            "RequiredLevel":88,
+            "Duration": 15,
+            "Cooldown": 90,
+            "Description": "10% damage reduction",
+            "SimilarSkills": ["Shield Samba", "Troubadour"],
+            "DisplayDescription": {
+                "IconSource": "FFXIV/Skills/MCH/tactician.png",
+                "ColorHex": "#FFFFFF"
+            }
+        },
+        {
+            "Name": "Dismantle",
+            "RequiredLevel":62,
+            "Duration": 10,
+            "Cooldown": 120,
+            "Description": "10% damage reduction",
+            "DisplayDescription": {
+                "IconSource": "FFXIV/Skills/MCH/dismantle.png",
+                "ColorHex": "#FFFFFF"
+            }
+        }
+    ],
+    "DisplayDescription": {
+        "IconSource": "FFXIV/Jobs/Dps/Job/Machinist.png",
+        "ColorHex": "#80a0f0"
+    }
+}
